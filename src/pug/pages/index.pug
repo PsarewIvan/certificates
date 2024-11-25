@@ -1,0 +1,35 @@
+extends ../layout.pug
+
+block variables
+    - var page = 'index'
+
+block content
+    include ../components/card.pug
+    include ../icons/caretLeft.pug
+
+    .main
+        .header-first.js-header-first
+            .header-first__title Покупка сертификата
+            .header-first__text Вишня, м. Новокузнецкая
+        .header-second.js-header-second
+            button.header-second__back-button.js-back-button(type='button')
+                +caretLeft('header-second__back-icon')
+            .header-second__title.js-header-title Выберите сертификат
+            .header-second__steps
+                div Шаг
+                .header-second__current-step.js-current-step 1
+                div из 5
+
+        .step
+            .cards(js-cards)
+                +card('Название сертификата длинным названием', '2 000', 'id1', 'хит', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                //- +card('Название сертификата ', '2 000', 'id2', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                //- +card('Название сертификата ', '2 000', 'id3', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                //- +card('Название сертификата ', '2 000', 'id4', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                //- +card('Название сертификата ', '2 000', 'id5', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+
+            .step-two.js-step-two
+                .step-two__tabs.js-tabs
+                    button.tabs__button.active.js-tab-button(type='button') Купить в подарок
+                    button.tabs__button.js-tab-button(type='button') Купить для себя
+                input.js-input(type='tel')

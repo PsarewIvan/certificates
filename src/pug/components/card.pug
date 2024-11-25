@@ -1,0 +1,23 @@
+include ../icons/hit.pug
+
+mixin card(name, price, id, hit, status, address, description)
+    .card.interactive.js-card(data-id=id)
+        .card__name
+            = name
+            if (hit !== '')
+                .card__name-hit
+                    +hit('card__name-hit-icon')
+                    .card__name-hit-text
+                        = hit
+        if (status !== '')
+            .card__status
+                = status 
+        if (address !== '')
+            .card__address 
+                = address 
+        if (description !== '')
+            .card__description 
+                = description
+        .card__price 
+            = price 
+            span ₽

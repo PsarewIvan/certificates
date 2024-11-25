@@ -1,0 +1,16 @@
+.step {
+    margin: 0 16px 6px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.step-two {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+}

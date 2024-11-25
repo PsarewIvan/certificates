@@ -1,0 +1,47 @@
+@use 'reset';
+@use 'fonts';
+@use 'vars';
+
+@use './pages/index.scss';
+@use './pages/header.scss';
+
+@use './components/card.scss';
+@use './components/tabs.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    font-family: vars.$sfProDisplay;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: vars.$textLBGPrimary;
+    background-color: vars.$interfaceBackground;
+}
+
+.main {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.transparent {
+    opacity: 0 !important;
+}
+
+.body-lock {
+    overflow: hidden;
+}

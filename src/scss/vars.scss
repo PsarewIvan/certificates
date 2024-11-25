@@ -1,0 +1,55 @@
+// font-family
+$sfProDisplay: 'SF Pro Display', 'Helvetica', 'Arial', sans-serif;
+$sfProDisplayLight: 'SF Pro Display Light', 'Helvetica', 'Arial', sans-serif;
+$sfProDisplayMedium: 'SF Pro Display Medium', 'Helvetica', 'Arial', sans-serif;
+$sfProDisplaySemibold: 'SF Pro Display Semibold', 'Helvetica', 'Arial',
+    sans-serif;
+
+// media-queries
+$desktop: 'screen and (max-width: 1240px)';
+$onlysmalldesktop: 'screen and (min-width: 1025px) and (max-width: 1149px)';
+$tablet: 'screen and (max-width: 1024px)';
+$phone: 'screen and (max-width: 767px)';
+$smallphone: 'screen and (max-width: 340px)';
+
+$accent32: rgba(1, 144, 219, 0.32);
+$accent12: rgba(1, 144, 219, 0.12);
+$accent48: rgba(1, 144, 219, 0.48);
+$accent500: rgba(1, 144, 219, 1);
+$accent600: rgba(0, 111, 188, 1);
+$backgroundBlue: rgba(231, 235, 247, 1);
+$backgroundBlueHover: rgba(194, 204, 235, 1);
+$backgroundBrown: rgba(241, 235, 228, 1);
+$backgroundBrownHover: rgba(227, 215, 201, 1);
+$backgroundCyan: rgba(228, 240, 241, 1);
+$backgroundCyanHover: rgba(201, 225, 227, 1);
+$backgroundGreen: rgba(230, 241, 228, 1);
+$backgroundGreenHover: rgba(205, 227, 201, 1);
+$backgroundRed: rgba(241, 228, 233, 1);
+$backgroundRedHover: rgba(227, 201, 211, 1);
+$backgroundYellow: rgba(244, 240, 225, 1);
+$backgroundYellowHover: rgba(233, 225, 195, 1);
+$backgroundPurple: rgba(238, 228, 241, 1);
+$backgroundPurpleHover: rgba(221, 201, 227, 1);
+$green500: rgb(15, 15, 15);
+$danger500: rgba(255, 59, 56, 1);
+$danger600: rgba(219, 40, 53, 1);
+$darkner4: rgba(0, 0, 0, 0.04);
+$interfaceBackground: rgba(255, 255, 255, 1);
+$interfaceBorder: rgba(0, 0, 0, 0.16);
+$textDBGPrimary: rgba(255, 255, 255, 1);
+$textLBGPrimary: rgba(31, 31, 31, 1);
+$textLBGSecondary: rgba(92, 92, 92, 1);
+$textLBGThird: rgba(143, 143, 143, 1);
+
+// @mixin tablet {
+//     @media (max-width: 1055px) {
+//         @content;
+//     }
+// }
+
+// @mixin mobile {
+//     @media (max-width: 767px) {
+//         @content;
+//     }
+// }
