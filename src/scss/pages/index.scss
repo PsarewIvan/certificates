@@ -1,3 +1,5 @@
+@use '../vars.scss';
+
 .step {
     margin: 0 16px 6px;
 }
@@ -13,4 +15,56 @@
     flex-direction: column;
     gap: 16px;
     margin-top: 32px;
+
+    &__tabs {
+        margin: 8px 0;
+    }
+}
+
+.step-three {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 0 16px;
+}
+
+.step-result {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 0 16px;
+
+    &__thx {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__label {
+        font-size: 14px;
+        line-height: 20px;
+        color: vars.$textLBGSecondary;
+    }
+
+    &__text {
+        span {
+            margin-left: 4px;
+        }
+    }
+}
+
+.button-wrapper {
+    width: 100%;
+    display: flex;
+    padding: 16px 0;
+
+    &__button {
+        width: 100%;
+    }
 }

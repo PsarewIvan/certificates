@@ -1,0 +1,90 @@
+@use '../vars.scss';
+
+.checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+
+    input[type='checkbox'] {
+        display: none;
+
+        &:checked + .checkbox__label-wrapper {
+            label {
+                color: vars.$textLBGPrimary;
+
+                &::before {
+                    border-color: vars.$accent500;
+                    background-color: vars.$accent500;
+                }
+
+                .checkbox__icon-ok {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.error + .checkbox__label-wrapper {
+            label {
+                &::before {
+                    border-color: vars.$danger500;
+                }
+            }
+        }
+    }
+
+    &__label-wrapper {
+        position: relative;
+        padding-left: 36px;
+    }
+
+    &__label {
+        color: vars.$textLBGSecondary;
+        font-size: 16px;
+        line-height: 24px;
+        cursor: pointer;
+        user-select: none;
+        transition: color 0.2s;
+
+        &:hover {
+            color: vars.$textLBGPrimary;
+
+            &::before {
+                border-color: vars.$accent500;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 8px;
+            border: 2px solid vars.$textLBGThird;
+            background-color: vars.$interfaceBackground;
+            box-sizing: border-box;
+            transition: all 0.2s;
+        }
+    }
+
+    &__link {
+        color: vars.$accent600;
+        text-decoration: none;
+    }
+
+    &__icon-ok {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 13px;
+        height: 13px;
+        fill: vars.$interfaceBackground;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+}

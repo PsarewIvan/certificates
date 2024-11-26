@@ -1,8 +1,4 @@
-import IMask from 'imask';
-
 (() => {
-    console.log(IMask);
-
     const inputs = document.querySelectorAll('.js-input[type="tel"]');
 
     inputs.forEach((input) => {

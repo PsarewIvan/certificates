@@ -1,0 +1,112 @@
+@use '../vars.scss';
+
+.text-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        margin-bottom: 8px;
+        color: vars.$textLBGPrimary;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__input {
+        padding: 10px 40px 10px 16px;
+        border-radius: 8px;
+        border: 1px solid vars.$interfaceLBGBorder;
+        background: vars.$interfaceBackground;
+        color: vars.$textLBGPrimary;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        transition: all 0.2s;
+
+        &::placeholder {
+            color: vars.$textLBGThird;
+        }
+
+        &:hover {
+            border-color: vars.$accent48;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: vars.$accent48;
+        }
+
+        &:disabled {
+            border-color: rgba(0, 0, 0, 0.08);
+            background-color: rgba(0, 0, 0, 0.08);
+        }
+
+        &.error {
+            border-color: rgba(255, 59, 56, 0.48);
+        }
+
+        &_force-alert {
+            border-color: rgba(255, 59, 56, 0.48);
+        }
+    }
+
+    &__input-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__reset {
+        display: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 16px;
+        width: 16px;
+        height: 16px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        &.active {
+            display: flex;
+        }
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        fill: vars.$textLBGThird;
+        transition: all 0.2s;
+    }
+
+    &__alert {
+        display: none;
+        margin-top: 4px;
+        color: #ff3b38;
+        font-size: 14px;
+        line-height: 20px;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    &__sub-text {
+        margin-top: 4px;
+        color: vars.$textLBGSecondary;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__force-alert {
+        margin-top: 4px;
+        color: #ff3b38;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}

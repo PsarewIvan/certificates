@@ -13,11 +13,11 @@ mixin card(name, price, id, hit, status, address, description)
             .card__status
                 = status 
         if (address !== '')
-            .card__address 
+            .card__address.js-card-address
                 = address 
         if (description !== '')
             .card__description 
                 = description
-        .card__price 
+        .card__price.js-card-price
             = price 
             span ₽

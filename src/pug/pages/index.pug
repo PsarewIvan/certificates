@@ -5,12 +5,15 @@ block variables
 
 block content
     include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
     include ../icons/caretLeft.pug
+    include ../icons/icon-ok.pug
 
     .main
         .header-first.js-header-first
-            .header-first__title Покупка сертификата
-            .header-first__text Вишня, м. Новокузнецкая
+            .header-first__title.js-header-first-title Покупка сертификата
+            .header-first__text.js-header-first-text Вишня, м. Новокузнецкая
         .header-second.js-header-second
             button.header-second__back-button.js-back-button(type='button')
                 +caretLeft('header-second__back-icon')
@@ -18,18 +21,66 @@ block content
             .header-second__steps
                 div Шаг
                 .header-second__current-step.js-current-step 1
-                div из 5
+                div из
+                .header-second__current-step.js-last-step 5
 
         .step
             .cards(js-cards)
                 +card('Название сертификата длинным названием', '2 000', 'id1', 'хит', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
-                //- +card('Название сертификата ', '2 000', 'id2', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
-                //- +card('Название сертификата ', '2 000', 'id3', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
-                //- +card('Название сертификата ', '2 000', 'id4', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
-                //- +card('Название сертификата ', '2 000', 'id5', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                +card('Название сертификата ', '3 000', 'id2', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                +card('Название сертификата ', '4 000', 'id3', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                +card('Название сертификата ', '5 000', 'id4', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                +card('Название сертификата ', '6 000', 'id5', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
 
-            .step-two.js-step-two
-                .step-two__tabs.js-tabs
-                    button.tabs__button.active.js-tab-button(type='button') Купить в подарок
-                    button.tabs__button.js-tab-button(type='button') Купить для себя
-                input.js-input(type='tel')
+            form
+                .step-two.hidden.js-step-two
+                    .step-two__tabs.tabs.js-tabs
+                        button.tabs__button.active.js-tab-button(type='button', data-type="present") Купить в подарок
+                        button.tabs__button.js-tab-button(type='button', data-type="self") Купить для себя
+                    +text-input({label: 'Телефон', type: 'tel', subText: 'Ссылка на сертификат и чек о покупке придёт в WhatsApp или SMS', name: 'inputPhone', className: 'js-input-phone'})
+                    +text-input({label: 'Имя', name: 'inputSenderName', className: 'hidden js-input-sender-name'})
+                    .checkbox-wrapper
+                        .checkbox
+                            input.js-agree-checkbox(type="checkbox" id='agree-checkbox')
+                            .checkbox__label-wrapper
+                                label.checkbox__label(for='agree-checkbox') Я соглашаюсь с условиями 
+                                    +icon-ok('checkbox__icon-ok')
+                                a.checkbox__link(href="#") Пользовательского соглашения
+
+                .step-three.hidden.js-step-three
+                    .card-content 
+                        .card-content__label.hidden.js-card-content-label-tel-self Ссылка на сертификат и чек о покупке придёт в WhatsApp или SMS
+                        .card-content__label.hidden.js-card-content-label-tel-present Чек о покупке придёт в WhatsApp или SMS
+                        .card-content__text.js-card-content-tel
+                    .card-content.hidden.js-card-content-name 
+                        .card-content__label Имя
+                        .card-content__text.js-card-content-name-text
+                .step-four.hidden.js-step-four
+                .step-five.hidden.js-step-five
+
+                .step-result.hidden.js-step-result
+                    .step-result__thx Спасибо за покупку
+                    .card-content
+                        .card-content__label Номер сертификата
+                        .card-content__text.js-card-result-id
+                    .card-content
+                        .card-content__label Где использовать
+                        .card-content__text В салоне
+                            span.js-card-result-address
+                    .card-content
+                        .card-content__label На что можно использовать
+                        .card-content__text.js-card-result-used
+                    .card-content
+                        .card-content__label Действует
+                        .card-content__text до
+                            span.js-card-result-date-to
+                            span года
+                    .card-content
+                        .card-content__label Имя
+                        .card-content__text.js-card-result-name
+                    .card-content
+                        .card-content__label Телефон
+                        .card-content__text.js-card-result-tel
+
+                .button-wrapper
+                    +button({text: 'Далее', disabled: true, className: 'button-wrapper__button hidden js-step-button'})

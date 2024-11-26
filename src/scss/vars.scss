@@ -17,6 +17,8 @@ $accent12: rgba(1, 144, 219, 0.12);
 $accent48: rgba(1, 144, 219, 0.48);
 $accent500: rgba(1, 144, 219, 1);
 $accent600: rgba(0, 111, 188, 1);
+$green500: rgba(87, 187, 68, 1);
+$green600: rgba(70, 150, 54, 1);
 $backgroundBlue: rgba(231, 235, 247, 1);
 $backgroundBlueHover: rgba(194, 204, 235, 1);
 $backgroundBrown: rgba(241, 235, 228, 1);
@@ -31,7 +33,6 @@ $backgroundYellow: rgba(244, 240, 225, 1);
 $backgroundYellowHover: rgba(233, 225, 195, 1);
 $backgroundPurple: rgba(238, 228, 241, 1);
 $backgroundPurpleHover: rgba(221, 201, 227, 1);
-$green500: rgb(15, 15, 15);
 $danger500: rgba(255, 59, 56, 1);
 $danger600: rgba(219, 40, 53, 1);
 $darkner4: rgba(0, 0, 0, 0.04);
@@ -41,6 +42,7 @@ $textDBGPrimary: rgba(255, 255, 255, 1);
 $textLBGPrimary: rgba(31, 31, 31, 1);
 $textLBGSecondary: rgba(92, 92, 92, 1);
 $textLBGThird: rgba(143, 143, 143, 1);
+$interfaceLBGBorder: rgba(0, 0, 0, 0.16);
 
 // @mixin tablet {
 //     @media (max-width: 1055px) {
