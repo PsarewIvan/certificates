@@ -1,0 +1,41 @@
+extends ../layout.pug
+
+block content
+    include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+    include ../icons/icon-ok.pug
+
+    .main
+        .header-first
+            .header-first__title Сертификат 675486129
+            .header-first__text Вишня, м. Новокузнецкая
+
+        .steps
+            .cards
+                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
+
+            .step
+                .step__title Спасибо за покупку
+                .card-content
+                    .card-content__label Номер сертификата
+                    .card-content__text 675486129
+                .card-content
+                    .card-content__label Где использовать
+                    .card-content__text В салоне Вишня, м. Новокузнецкая
+                .card-content
+                    .card-content__label На что можно использовать
+                    .card-content__text Любые услуги и товары салона
+                .card-content
+                    .card-content__label Действует
+                    .card-content__text до 20.11.2025 года
+                .card-content
+                    .card-content__label Имя
+                    .card-content__text Константин
+                .card-content
+                    .card-content__label Телефон
+                    .card-content__text +7 (800) 900-80-70
+
+                .button-wrapper
+                    +button({text: 'Записаться онлайн', className: 'button-wrapper__button'})

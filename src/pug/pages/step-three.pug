@@ -1,0 +1,28 @@
+extends ../layout.pug
+
+block content
+    include ../components/card.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+
+    .main
+        .header-second
+            button.header-second__back-button(type='button')
+                +caretLeft('header-second__back-icon')
+            .header-second__title Оплата
+            .header-second__steps Шаг 3 из 3
+
+        .steps
+            .cards
+                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
+
+            .step
+                .card-content 
+                    .card-content__label Ссылка на сертификат и чек о покупке придёт в WhatsApp или SMS
+                    .card-content__text +7 (800) 900-80-70
+                .card-content 
+                    .card-content__label Имя
+                    .card-content__text Константин
+
+                .button-wrapper
+                    +button({text: 'Оплатить 2 000 ₽', className: 'button-wrapper__button'})

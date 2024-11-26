@@ -1,0 +1,38 @@
+extends ../layout.pug
+
+block content
+    include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+    include ../icons/icon-ok.pug
+
+    .main
+        .header-second
+            button.header-second__back-button(type='button')
+                +caretLeft('header-second__back-icon')
+            .header-second__title Ваши данные
+            .header-second__steps Шаг 2 из 
+                span.js-step-two-last-step 5
+
+        .steps
+            .cards
+                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
+
+            form
+                .step
+                    .step__tabs.tabs.js-tabs
+                        button.tabs__button.active.js-tab-button.js-step-two-tab(type='button', data-type="present") Купить в подарок
+                        button.tabs__button.js-tab-button.js-step-two-tab(type='button', data-type="self") Купить для себя
+                    +text-input({label: 'Телефон', type: 'tel', subText: 'Чек о покупке придёт в WhatsApp или SMS', name: 'inputPhone', classNameSubText: 'js-input-tel-sub-text'})
+                    +text-input({label: 'Имя', name: 'inputSenderName', className: 'hidden js-two-step-input-name'})
+                    .checkbox-wrapper
+                        .checkbox
+                            input(type="checkbox" id='agree-checkbox')
+                            .checkbox__label-wrapper
+                                label.checkbox__label(for='agree-checkbox') Я соглашаюсь с условиями 
+                                    +icon-ok('checkbox__icon-ok')
+                                a.checkbox__link(href="#") Пользовательского соглашения
+
+                    .button-wrapper
+                        +button({text: 'Далее', className: 'button-wrapper__button'})

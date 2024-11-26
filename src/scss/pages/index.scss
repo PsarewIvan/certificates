@@ -1,6 +1,6 @@
 @use '../vars.scss';
 
-.step {
+.steps {
     margin: 0 16px 6px;
 }
 
@@ -10,31 +10,17 @@
     gap: 4px;
 }
 
-.step-two {
+.step {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-top: 32px;
+    margin: 32px 0 16px;
 
     &__tabs {
         margin: 8px 0;
     }
-}
 
-.step-three {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 32px 0 16px;
-}
-
-.step-result {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 32px 0 16px;
-
-    &__thx {
+    &__title {
         font-size: 20px;
         font-weight: 500;
         line-height: 24px;
@@ -53,6 +39,10 @@
     }
 
     &__text {
+        &_bold {
+            font-weight: 600;
+        }
+
         span {
             margin-left: 4px;
         }

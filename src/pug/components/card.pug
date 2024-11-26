@@ -1,7 +1,7 @@
 include ../icons/hit.pug
 
-mixin card(name, price, id, hit, status, address, description)
-    .card.interactive.js-card(data-id=id)
+mixin card({name, price, hit, status, address, description})
+    .card
         .card__name
             = name
             if (hit !== '')
@@ -13,11 +13,11 @@ mixin card(name, price, id, hit, status, address, description)
             .card__status
                 = status 
         if (address !== '')
-            .card__address.js-card-address
+            .card__address
                 = address 
         if (description !== '')
             .card__description 
                 = description
-        .card__price.js-card-price
+        .card__price
             = price 
             span ₽

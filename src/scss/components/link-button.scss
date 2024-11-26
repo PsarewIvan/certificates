@@ -1,0 +1,23 @@
+@use '../vars.scss';
+
+.link-button {
+    display: flex;
+    padding: 10px 0;
+
+    &__button {
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        color: vars.$accent600;
+        transition: all 0.2s;
+
+        &:hover {
+            color: vars.$accent700;
+        }
+    }
+}

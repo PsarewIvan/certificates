@@ -1,0 +1,32 @@
+extends ../layout.pug
+
+block content
+    include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+    include ../icons/icon-ok.pug
+
+    .main
+        .header-second
+            .header-second__title Спасибо за покупку
+            .header-second__steps Шаг 3 из 5
+
+        .steps
+            .cards
+                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
+
+            .step
+                .step__title Спасибо за покупку
+                .card-content
+                    .card-content__label Номер сертификата
+                    .card-content__text 675486129
+                .card-content
+                    .card-content__label Действует
+                    .card-content__text до 20.11.2025 года
+                .card-content
+                    .card-content__label Чек о покупке отправлен на номер
+                    .card-content__text +7 (800) 900-80-70
+
+                .button-wrapper
+                    +button({text: 'Выбрать дизайн и получателя', className: 'button-wrapper__button'})

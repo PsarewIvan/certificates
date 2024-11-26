@@ -1,0 +1,43 @@
+extends ../layout.pug
+
+block content
+    include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+    include ../icons/icon-ok.pug
+
+    .main
+        .header-first
+            .header-first__title Сертификат 675486129
+            .header-first__text Вишня, м. Новокузнецкая
+
+        .steps
+            .cards
+                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая'})
+
+            .step
+                .step__title Константин Константинович
+                .card-content
+                    .card-content__text Поздравляю со средой – ещё не пятница, но уже не понедельник
+                .card-content
+                    .card-content__text.card-content__text_bold Анастасия
+                .card-content.hidden.js-result-present-adding-content
+                    .card-content__label Номер сертификата
+                    .card-content__text 675486129
+                .card-content.hidden.js-result-present-adding-content
+                    .card-content__label Где использовать
+                    .card-content__text В салоне Вишня, м. Новокузнецкая
+                .card-content.hidden.js-result-present-adding-content
+                    .card-content__label На что можно использовать
+                    .card-content__text Любые услуги и товары салона
+                .card-content.hidden.js-result-present-adding-content
+                    .card-content__label Действует
+                    .card-content__text до 20.11.2025 года
+                .link-button.js-result-present-add-button
+                    button.link-button__button(type="button")
+                        span.js-result-present-add-button-show-text Подробнее о сертификате
+                        span.hidden.js-result-present-add-button-hide-text Скрыть описание
+
+                .button-wrapper
+                    +button({text: 'Записаться онлайн', className: 'button-wrapper__button'})

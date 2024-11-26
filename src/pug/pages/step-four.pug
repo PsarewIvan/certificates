@@ -1,0 +1,29 @@
+extends ../layout.pug
+
+block content
+    include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+
+    .main
+        .header-second
+            button.header-second__back-button(type='button')
+                +caretLeft('header-second__back-icon')
+            .header-second__title Дизайн и получатель
+            .header-second__steps Шаг 4 из 5
+
+        .steps
+            .cards
+                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая'})
+
+            .step
+                +text-input({label: 'Телефон получателя', type: 'tel', subText: 'Ссылка на сертификат придёт в WhatsApp или SMS', name: 'inputPhone'})
+                +text-input({label: 'Имя получателя', name: 'inputSenderName'})
+                .link-button.js-step-four-add-button
+                    button.link-button__button(type="button") Добавить поздравление
+                +text-input({label: 'Текст поздравления', name: 'inputCongratulations', className:'hidden js-step-four-adding-input'})
+                +text-input({label: 'Имя отправителя', name: 'inputRecipientName', className:'hidden js-step-four-adding-input'})
+
+                .button-wrapper
+                    +button({text: 'Далее', className: 'button-wrapper__button'})

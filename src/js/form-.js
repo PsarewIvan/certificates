@@ -317,6 +317,20 @@
     }
 
     function handleOrderTypeChange(value) {
+        const INPUT_SUB_TEXT = {
+            [ORDER_TYPE.Self]:
+                'Ссылка на сертификат и чек о покупке придёт в WhatsApp или SMS',
+            [ORDER_TYPE.Present]: 'Чек о покупке придёт в WhatsApp или SMS',
+        };
+
+        const nameSubText = document.querySelector(
+            '.js-input-sender-name-sub-text'
+        );
+
+        if (nameSubText) {
+            nameSubText.innerHTML = INPUT_SUB_TEXT[value];
+        }
+
         switch (value) {
             case ORDER_TYPE.Self:
                 inputSenderName?.classList.remove(CLASS_HIDDEN);
@@ -406,30 +420,30 @@
     }
 
     // TABS
-    const tabsBlocks = document.querySelectorAll('.js-tabs');
+    // const tabsBlocks = document.querySelectorAll('.js-tabs');
 
-    tabsBlocks.forEach((tabs) => {
-        const buttons = tabs.querySelectorAll('.js-tab-button');
+    // tabsBlocks.forEach((tabs) => {
+    //     const buttons = tabs.querySelectorAll('.js-tab-button');
 
-        buttons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const buttonType = button.dataset.type;
+    //     buttons.forEach((button) => {
+    //         button.addEventListener('click', () => {
+    //             const buttonType = button.dataset.type;
 
-                resetButtons();
-                button.classList.add('active');
+    //             resetButtons();
+    //             button.classList.add('active');
 
-                if (buttonType) {
-                    observedState.orderType = buttonType;
-                }
-            });
-        });
+    //             if (buttonType) {
+    //                 observedState.orderType = buttonType;
+    //             }
+    //         });
+    //     });
 
-        function resetButtons() {
-            buttons.forEach((button) => {
-                button.classList.remove('active');
-            });
-        }
-    });
+    //     function resetButtons() {
+    //         buttons.forEach((button) => {
+    //             button.classList.remove('active');
+    //         });
+    //     }
+    // });
 
     // INPUTS
     const INPUT_NAMES = {
@@ -439,52 +453,52 @@
     };
     const nodes = document.querySelectorAll('.js-text-input-node');
 
-    nodes.forEach((node) => {
-        const input = node.querySelector('.js-text-input');
-        const reset = node.querySelector('.js-text-input-reset');
-        const alert = node.querySelector('.js-text-input-alert');
+    // nodes.forEach((node) => {
+    //     const input = node.querySelector('.js-text-input');
+    //     const reset = node.querySelector('.js-text-input-reset');
+    //     const alert = node.querySelector('.js-text-input-alert');
 
-        if (input.value !== '') {
-            reset?.classList.add(ACTIVE_CLASS);
-        }
+    //     if (input.value !== '') {
+    //         reset?.classList.add(ACTIVE_CLASS);
+    //     }
 
-        input?.addEventListener('blur', (event) => {
-            if (event.target.value === '') {
-                alert?.classList.add(ACTIVE_CLASS);
-            } else {
-                alert?.classList.remove(ACTIVE_CLASS);
-            }
-        });
+    //     input?.addEventListener('blur', (event) => {
+    //         if (event.target.value === '') {
+    //             alert?.classList.add(ACTIVE_CLASS);
+    //         } else {
+    //             alert?.classList.remove(ACTIVE_CLASS);
+    //         }
+    //     });
 
-        input?.addEventListener('input', (event) => {
-            if (event.target.value === '') {
-                reset?.classList.remove(ACTIVE_CLASS);
-            } else {
-                reset?.classList.add(ACTIVE_CLASS);
-                alert?.classList.remove(ACTIVE_CLASS);
-            }
+    //     input?.addEventListener('input', (event) => {
+    //         if (event.target.value === '') {
+    //             reset?.classList.remove(ACTIVE_CLASS);
+    //         } else {
+    //             reset?.classList.add(ACTIVE_CLASS);
+    //             alert?.classList.remove(ACTIVE_CLASS);
+    //         }
 
-            switch (input.name) {
-                case INPUT_NAMES.Phone:
-                    observedState.phone = event.target.value;
-                    break;
-                case INPUT_NAMES.SenderName:
-                    observedState.senderName = event.target.value;
-                    break;
-                case INPUT_NAMES.RecipientName:
-                    observedState.recipientName = event.target.value;
-                    break;
-            }
-        });
+    //         switch (input.name) {
+    //             case INPUT_NAMES.Phone:
+    //                 observedState.phone = event.target.value;
+    //                 break;
+    //             case INPUT_NAMES.SenderName:
+    //                 observedState.senderName = event.target.value;
+    //                 break;
+    //             case INPUT_NAMES.RecipientName:
+    //                 observedState.recipientName = event.target.value;
+    //                 break;
+    //         }
+    //     });
 
-        reset?.addEventListener('click', () => {
-            if (input) {
-                input.value = '';
-                observedState.phone = '';
-                reset?.classList.remove(ACTIVE_CLASS);
-            }
-        });
-    });
+    //     reset?.addEventListener('click', () => {
+    //         if (input) {
+    //             input.value = '';
+    //             observedState.phone = '';
+    //             reset?.classList.remove(ACTIVE_CLASS);
+    //         }
+    //     });
+    // });
 
     // TOGGLES
     agreeCheckbox?.addEventListener('input', () => {

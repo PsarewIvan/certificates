@@ -24,20 +24,20 @@ block content
                 div из
                 .header-second__current-step.js-last-step 5
 
-        .step
+        .steps
             .cards(js-cards)
-                +card('Название сертификата длинным названием', '2 000', 'id1', 'хит', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
-                +card('Название сертификата ', '3 000', 'id2', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
-                +card('Название сертификата ', '4 000', 'id3', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
-                +card('Название сертификата ', '5 000', 'id4', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
-                +card('Название сертификата ', '6 000', 'id5', '', 'Действует 365 дней после активации', 'Вишня, м. Новокузнецкая', 'Условия где и на что может использоваться')
+                +card({name: 'Название сертификата длинным названием', price: '2 000', hit: 'хит', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
 
             form
                 .step-two.hidden.js-step-two
                     .step-two__tabs.tabs.js-tabs
                         button.tabs__button.active.js-tab-button(type='button', data-type="present") Купить в подарок
                         button.tabs__button.js-tab-button(type='button', data-type="self") Купить для себя
-                    +text-input({label: 'Телефон', type: 'tel', subText: 'Ссылка на сертификат и чек о покупке придёт в WhatsApp или SMS', name: 'inputPhone', className: 'js-input-phone'})
+                    +text-input({label: 'Телефон', type: 'tel', subText: 'Чек о покупке придёт в WhatsApp или SMS', classNameSubText: 'js-input-sender-name-sub-text', name: 'inputPhone', className: 'js-input-phone'})
                     +text-input({label: 'Имя', name: 'inputSenderName', className: 'hidden js-input-sender-name'})
                     .checkbox-wrapper
                         .checkbox
@@ -59,7 +59,7 @@ block content
                 .step-five.hidden.js-step-five
 
                 .step-result.hidden.js-step-result
-                    .step-result__thx Спасибо за покупку
+                    .step-result__title Спасибо за покупку
                     .card-content
                         .card-content__label Номер сертификата
                         .card-content__text.js-card-result-id

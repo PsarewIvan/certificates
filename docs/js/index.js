@@ -317,6 +317,20 @@
     }
 
     function handleOrderTypeChange(value) {
+        const INPUT_SUB_TEXT = {
+            [ORDER_TYPE.Self]:
+                'Ссылка на сертификат и чек о покупке придёт в WhatsApp или SMS',
+            [ORDER_TYPE.Present]: 'Чек о покупке придёт в WhatsApp или SMS',
+        };
+
+        const nameSubText = document.querySelector(
+            '.js-input-sender-name-sub-text'
+        );
+
+        if (nameSubText) {
+            nameSubText.innerHTML = INPUT_SUB_TEXT[value];
+        }
+
         switch (value) {
             case ORDER_TYPE.Self:
                 inputSenderName?.classList.remove(CLASS_HIDDEN);
@@ -406,30 +420,30 @@
     }
 
     // TABS
-    const tabsBlocks = document.querySelectorAll('.js-tabs');
+    // const tabsBlocks = document.querySelectorAll('.js-tabs');
 
-    tabsBlocks.forEach((tabs) => {
-        const buttons = tabs.querySelectorAll('.js-tab-button');
+    // tabsBlocks.forEach((tabs) => {
+    //     const buttons = tabs.querySelectorAll('.js-tab-button');
 
-        buttons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const buttonType = button.dataset.type;
+    //     buttons.forEach((button) => {
+    //         button.addEventListener('click', () => {
+    //             const buttonType = button.dataset.type;
 
-                resetButtons();
-                button.classList.add('active');
+    //             resetButtons();
+    //             button.classList.add('active');
 
-                if (buttonType) {
-                    observedState.orderType = buttonType;
-                }
-            });
-        });
+    //             if (buttonType) {
+    //                 observedState.orderType = buttonType;
+    //             }
+    //         });
+    //     });
 
-        function resetButtons() {
-            buttons.forEach((button) => {
-                button.classList.remove('active');
-            });
-        }
-    });
+    //     function resetButtons() {
+    //         buttons.forEach((button) => {
+    //             button.classList.remove('active');
+    //         });
+    //     }
+    // });
 
     // INPUTS
     const INPUT_NAMES = {
@@ -437,6 +451,80 @@
         RecipientName: 'inputRecipientName',
         Phone: 'inputPhone',
     };
+    const nodes = document.querySelectorAll('.js-text-input-node');
+
+    // nodes.forEach((node) => {
+    //     const input = node.querySelector('.js-text-input');
+    //     const reset = node.querySelector('.js-text-input-reset');
+    //     const alert = node.querySelector('.js-text-input-alert');
+
+    //     if (input.value !== '') {
+    //         reset?.classList.add(ACTIVE_CLASS);
+    //     }
+
+    //     input?.addEventListener('blur', (event) => {
+    //         if (event.target.value === '') {
+    //             alert?.classList.add(ACTIVE_CLASS);
+    //         } else {
+    //             alert?.classList.remove(ACTIVE_CLASS);
+    //         }
+    //     });
+
+    //     input?.addEventListener('input', (event) => {
+    //         if (event.target.value === '') {
+    //             reset?.classList.remove(ACTIVE_CLASS);
+    //         } else {
+    //             reset?.classList.add(ACTIVE_CLASS);
+    //             alert?.classList.remove(ACTIVE_CLASS);
+    //         }
+
+    //         switch (input.name) {
+    //             case INPUT_NAMES.Phone:
+    //                 observedState.phone = event.target.value;
+    //                 break;
+    //             case INPUT_NAMES.SenderName:
+    //                 observedState.senderName = event.target.value;
+    //                 break;
+    //             case INPUT_NAMES.RecipientName:
+    //                 observedState.recipientName = event.target.value;
+    //                 break;
+    //         }
+    //     });
+
+    //     reset?.addEventListener('click', () => {
+    //         if (input) {
+    //             input.value = '';
+    //             observedState.phone = '';
+    //             reset?.classList.remove(ACTIVE_CLASS);
+    //         }
+    //     });
+    // });
+
+    // TOGGLES
+    agreeCheckbox?.addEventListener('input', () => {
+        observedState.agreement = agreeCheckbox.checked;
+    });
+
+    // STEP BUTTON
+    stepButton?.addEventListener('click', () => {
+        if (
+            observedState.currentStep === 5 ||
+            (observedState.currentStep === 3 &&
+                observedState.orderType === ORDER_TYPE.Self)
+        ) {
+            payment(observedState, stepButton);
+            return;
+        }
+
+        if (observedState.currentStep < 5) {
+            observedState.currentStep += 1;
+        }
+    });
+})();
+
+(() => {
+    const ACTIVE_CLASS = 'active';
+
     const nodes = document.querySelectorAll('.js-text-input-node');
 
     nodes.forEach((node) => {
@@ -464,47 +552,26 @@
                 alert?.classList.remove(ACTIVE_CLASS);
             }
 
-            switch (input.name) {
-                case INPUT_NAMES.Phone:
-                    observedState.phone = event.target.value;
-                    break;
-                case INPUT_NAMES.SenderName:
-                    observedState.senderName = event.target.value;
-                    break;
-                case INPUT_NAMES.RecipientName:
-                    observedState.recipientName = event.target.value;
-                    break;
-            }
+            // switch (input.name) {
+            //     case INPUT_NAMES.Phone:
+            //         observedState.phone = event.target.value;
+            //         break;
+            //     case INPUT_NAMES.SenderName:
+            //         observedState.senderName = event.target.value;
+            //         break;
+            //     case INPUT_NAMES.RecipientName:
+            //         observedState.recipientName = event.target.value;
+            //         break;
+            // }
         });
 
         reset?.addEventListener('click', () => {
             if (input) {
                 input.value = '';
-                observedState.phone = '';
+                // observedState.phone = '';
                 reset?.classList.remove(ACTIVE_CLASS);
             }
         });
-    });
-
-    // TOGGLES
-    agreeCheckbox?.addEventListener('input', () => {
-        observedState.agreement = agreeCheckbox.checked;
-    });
-
-    // STEP BUTTON
-    stepButton?.addEventListener('click', () => {
-        if (
-            observedState.currentStep === 5 ||
-            (observedState.currentStep === 3 &&
-                observedState.orderType === ORDER_TYPE.Self)
-        ) {
-            payment(observedState, stepButton);
-            return;
-        }
-
-        if (observedState.currentStep < 5) {
-            observedState.currentStep += 1;
-        }
     });
 })();
 
@@ -530,6 +597,130 @@
             }
         });
     });
+})();
+
+(() => {
+    const CLASS_HIDDEN = 'hidden';
+
+    const addingButton = document.querySelector(
+        '.js-result-present-add-button'
+    );
+    const addingInputs = document.querySelectorAll(
+        '.js-result-present-adding-content'
+    );
+    const buttonShowText = document.querySelector(
+        '.js-result-present-add-button-show-text'
+    );
+    const buttonHideText = document.querySelector(
+        '.js-result-present-add-button-hide-text'
+    );
+
+    addingButton?.addEventListener('click', () => {
+        addingInputs.forEach((input) => {
+            input.classList.toggle(CLASS_HIDDEN);
+        });
+
+        buttonShowText?.classList.toggle(CLASS_HIDDEN);
+        buttonHideText?.classList.toggle(CLASS_HIDDEN);
+    });
+})();
+
+(() => {
+    const CLASS_HIDDEN = 'hidden';
+
+    const addingButton = document.querySelector('.js-step-four-add-button');
+    const addingInputs = document.querySelectorAll(
+        '.js-step-four-adding-input'
+    );
+
+    addingButton?.addEventListener('click', () => {
+        addingInputs.forEach((input) => {
+            input.classList.remove(CLASS_HIDDEN);
+        });
+
+        addingButton.classList.add(CLASS_HIDDEN);
+    });
+})();
+
+(() => {
+    const CLASS_HIDDEN = 'hidden';
+
+    const tabButtons = document.querySelectorAll('.js-step-two-tab');
+
+    tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const buttonType = button.dataset.type;
+
+            if (buttonType) {
+                changeInputTelSubText(buttonType);
+                inputNameShowToggle(buttonType);
+                changeLastStep(buttonType);
+            }
+        });
+    });
+
+    function changeInputTelSubText(type) {
+        const inputTelSubText = document.querySelector(
+            '.js-input-tel-sub-text'
+        );
+
+        if (type === 'self' && inputTelSubText) {
+            inputTelSubText.innerHTML =
+                'Ссылка на сертификат и чек о покупке придёт в WhatsApp или SMS';
+        }
+
+        if (type === 'present' && inputTelSubText) {
+            inputTelSubText.innerHTML =
+                'Чек о покупке придёт в WhatsApp или SMS';
+        }
+    }
+
+    function inputNameShowToggle(type) {
+        const inputName = document.querySelector('.js-two-step-input-name');
+
+        if (type === 'self' && inputName) {
+            inputName.classList.remove(CLASS_HIDDEN);
+        }
+
+        if (type === 'present' && inputName) {
+            inputName.classList.add(CLASS_HIDDEN);
+        }
+    }
+
+    function changeLastStep(type) {
+        const lastStep = document.querySelector('.js-step-two-last-step');
+
+        if (type === 'self' && lastStep) {
+            lastStep.innerHTML = '3';
+        }
+
+        if (type === 'present' && lastStep) {
+            lastStep.innerHTML = '5';
+        }
+    }
+})();
+
+(() => {
+    const ACTIVE_CLASS = 'active';
+
+    const tabsBlock = document.querySelector('.js-tabs');
+
+    if (tabsBlock) {
+        const buttons = tabsBlock.querySelectorAll('.js-tab-button');
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                resetButtons();
+                button.classList.add(ACTIVE_CLASS);
+            });
+        });
+
+        function resetButtons() {
+            buttons.forEach((button) => {
+                button.classList.remove(ACTIVE_CLASS);
+            });
+        }
+    }
 })();
 
 //# sourceMappingURL=index.js.map

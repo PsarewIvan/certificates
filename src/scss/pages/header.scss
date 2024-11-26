@@ -40,7 +40,7 @@
     }
 
     &__back-button {
-        display: none;
+        display: flex;
         width: 48px;
         height: 48px;
         align-items: center;
@@ -59,7 +59,7 @@
     }
 
     &__steps {
-        display: none;
+        display: flex;
         flex-shrink: 0;
         flex-wrap: nowrap;
         gap: 4px;

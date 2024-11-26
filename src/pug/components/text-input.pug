@@ -1,6 +1,6 @@
 include ../icons/icon-cross.pug
 
-mixin text-input({label='', alert='', placeholder='', value='', className='', subText='', forceAlert='', type='text', name=''})
+mixin text-input({label='', alert='', placeholder='', value='', className='', subText='', classNameSubText='', forceAlert='', type='text', name=''})
     - var inputForceClass = forceAlert === '' ? '' : 'text-input__input_force-alert'
 
     .text-input.js-text-input-node(class=className)
@@ -12,6 +12,6 @@ mixin text-input({label='', alert='', placeholder='', value='', className='', su
         if alert !== ''
             .text-input__alert.js-text-input-alert= alert
         if subText !== ''
-            .text-input__sub-text= subText
+            .text-input__sub-text(class=classNameSubText)= subText
         if forceAlert !== ''
             .text-input__force-alert= forceAlert
