@@ -1,8 +1,8 @@
 include ../icons/hit.pug
 include ../icons/icon-arrow-left.pug
 
-mixin card({name, price, hit, status, address, description, hasBg, hasImg, hasBtns})
-    .card
+mixin card({name, price, hit, status, address, description, hasBg, hasImg, hasBtns, className})
+    .card(class=className)
         if (hasBg)
             .card__bg.card__bg_1.js-card-bg.active(data-type="2")
             .card__bg.card__bg_2.js-card-bg(data-type="3")
@@ -23,7 +23,7 @@ mixin card({name, price, hit, status, address, description, hasBg, hasImg, hasBt
                     +icon-arrow-left('card__button-icon')
         .card__name
             = name
-            if (hit !== '')
+            if (hit)
                 .card__name-hit
                     +hit('card__name-hit-icon')
                     .card__name-hit-text
