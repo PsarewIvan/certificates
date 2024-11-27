@@ -14,8 +14,22 @@ block content
             .header-second__steps Шаг 4 из 5
 
         .steps
-            .cards
-                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая'})
+            .cards.cards__step-four
+                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', hasBg:'true', hasImg: 'true', hasBtns: 'true'})
+
+                .bg-tabs.js-bg-tabs
+                    button.bg-tabs__button.js-bg-tab-button(type='button', data-type="1")
+                        img(src="./img/image1.png")
+                    button.bg-tabs__button.active.js-bg-tab-button(type='button', data-type="2")
+                        img(src="./img/image2.png")
+                    button.bg-tabs__button.js-bg-tab-button(type='button', data-type="3")
+                        img(src="./img/image3.png")
+                    button.bg-tabs__button.js-bg-tab-button(type='button', data-type="4")
+                        img(src="./img/image4.png")
+                    button.bg-tabs__button.js-bg-tab-button(type='button', data-type="5")
+                        img(src="./img/image5.png")
+                    button.bg-tabs__button.js-bg-tab-button(type='button', data-type="6")
+                        img(src="./img/image6.png")
 
             .step
                 +text-input({label: 'Телефон получателя', type: 'tel', subText: 'Ссылка на сертификат придёт в WhatsApp или SMS', name: 'inputPhone'})

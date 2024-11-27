@@ -1,7 +1,26 @@
 include ../icons/hit.pug
+include ../icons/icon-arrow-left.pug
 
-mixin card({name, price, hit, status, address, description})
+mixin card({name, price, hit, status, address, description, hasBg, hasImg, hasBtns})
     .card
+        if (hasBg)
+            .card__bg.card__bg_1.js-card-bg.active(data-type="2")
+            .card__bg.card__bg_2.js-card-bg(data-type="3")
+            .card__bg.card__bg_3.js-card-bg(data-type="4")
+            .card__bg.card__bg_4.js-card-bg(data-type="5")
+            .card__bg.card__bg_5.js-card-bg(data-type="6")
+        if (hasImg)
+            .card__img.card__img_1.js-card-img.active
+            .card__img.card__img_2.js-card-img
+            .card__img.card__img_3.js-card-img
+            .card__img.card__img_4.js-card-img
+            .card__img.card__img_5.js-card-img
+        if (hasBtns)
+            .card__buttons.js-card-buttons
+                button.card__button.card__button_left.js-card-button-left(type="button")
+                    +icon-arrow-left('card__button-icon')
+                button.card__button.card__button_right.js-card-button-right(type="button")
+                    +icon-arrow-left('card__button-icon')
         .card__name
             = name
             if (hit !== '')
@@ -21,3 +40,4 @@ mixin card({name, price, hit, status, address, description})
         .card__price
             = price 
             span ₽
+        

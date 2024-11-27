@@ -1,6 +1,7 @@
 @use '../vars.scss';
 
 .card {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 16px 24px;
@@ -74,10 +75,12 @@
         display: flex;
         align-items: flex-start;
         gap: 4px;
+        z-index: 10;
     }
 
     &__name-hit {
         display: none;
+        z-index: 10;
     }
 
     &.interactive {
@@ -91,6 +94,7 @@
         width: 24px;
         height: 24px;
         color: vars.$danger500;
+        z-index: 10;
     }
 
     &__name-hit-text {
@@ -98,6 +102,7 @@
         font-weight: 400;
         line-height: 20px;
         color: vars.$danger600;
+        z-index: 10;
     }
 
     &__status {
@@ -106,6 +111,7 @@
         font-size: 12px;
         line-height: 16px;
         color: vars.$textLBGSecondary;
+        z-index: 10;
     }
 
     &.interactive {
@@ -134,12 +140,14 @@
         font-size: 12px;
         line-height: 16px;
         color: vars.$textLBGSecondary;
+        z-index: 10;
     }
 
     &__description {
         margin-top: 8px;
         font-size: 14px;
         line-height: 20px;
+        z-index: 10;
     }
 
     &__price {
@@ -149,5 +157,140 @@
         margin-top: 8px;
         font-size: 28px;
         line-height: 42px;
+        z-index: 10;
+    }
+
+    &__bg {
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 24px;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.2s;
+
+        &.active {
+            opacity: 1;
+        }
+
+        &_1 {
+            background-image: url('../img/gradient01.png');
+        }
+
+        &_2 {
+            background-image: url('../img/gradient02.png');
+        }
+
+        &_3 {
+            background-image: url('../img/gradient03.png');
+        }
+
+        &_4 {
+            background-image: url('../img/gradient04.png');
+        }
+
+        &_5 {
+            background-image: url('../img/gradient05.png');
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        z-index: 2;
+        border-radius: 24px;
+        opacity: 0;
+        transition: all 0.2s;
+
+        &.active {
+            opacity: 1;
+        }
+
+        &_1 {
+            background-image: url('../img/baloon.png');
+        }
+
+        &_2 {
+            background-image: url('../img/cake.png');
+        }
+
+        &_3 {
+            background-image: url('../img/gift.png');
+        }
+
+        &_4 {
+            background-image: url('../img/heart.png');
+        }
+
+        &_5 {
+            background-image: url('../img/flower.png');
+        }
+    }
+
+    &__buttons {
+        z-index: 30;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    &__button {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        border: none;
+        border-radius: 8px;
+        background-color: vars.$interfaceBackground;
+        cursor: pointer;
+        color: vars.$textLBGSecondary;
+        transition: all 0.2s;
+        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.04),
+            0px 2px 6px 0px rgba(0, 0, 0, 0.04),
+            0px 0px 1px 0px rgba(0, 0, 0, 0.04);
+
+        &:hover {
+            color: vars.$textLBGPrimary;
+        }
+
+        &:active {
+            color: vars.$accent500;
+        }
+    }
+
+    &__button-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__button_left {
+        margin-left: -12px;
+    }
+
+    &__button_right {
+        margin-right: -12px;
+
+        .card__button-icon {
+            transform: rotate(180deg);
+        }
     }
 }

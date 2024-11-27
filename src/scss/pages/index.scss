@@ -8,6 +8,10 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
+
+    &__step-four {
+        gap: 16px;
+    }
 }
 
 .step {
@@ -45,6 +49,39 @@
 
         span {
             margin-left: 4px;
+        }
+    }
+}
+
+.bg-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 0 10px;
+
+    &__button {
+        position: relative;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        background-color: transparent;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &.active {
+            border-color: vars.$accent500;
+        }
+
+        img {
+            width: 40px;
+            height: 40px;
         }
     }
 }
