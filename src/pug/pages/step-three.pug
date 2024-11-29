@@ -6,14 +6,17 @@ block content
     include ../icons/caretLeft.pug
 
     .main
+        .header-first.header-first__not-mobile.js-header-first
+            .header-first__title.js-header-first-title Покупка сертификата
+            .header-first__text.js-header-first-text Вишня, м. Новокузнецкая
         .header-second
             button.header-second__back-button(type='button')
                 +caretLeft('header-second__back-icon')
             .header-second__title Оплата
             .header-second__steps Шаг 3 из 3
 
-        .steps
-            .cards
+        .steps.steps_columns
+            .cards.cards_single
                 +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
 
             .step

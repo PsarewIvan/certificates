@@ -8,16 +8,19 @@ block content
     include ../icons/icon-ok.pug
 
     .main
+        .header-first.header-first__not-mobile.js-header-first
+            .header-first__title.js-header-first-title Покупка сертификата
+            .header-first__text.js-header-first-text Вишня, м. Новокузнецкая
         .header-second
             .header-second__title Спасибо за покупку
             .header-second__steps Шаг 3 из 5
 
-        .steps
-            .cards
+        .steps.steps_columns
+            .cards.cards_single
                 +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться'})
 
             .step
-                .step__title Спасибо за покупку
+                .step__title.step__title_hide-tablet Спасибо за покупку
                 .card-content
                     .card-content__label Номер сертификата
                     .card-content__text 675486129

@@ -7,14 +7,17 @@ block content
     include ../icons/caretLeft.pug
 
     .main
+        .header-first.header-first__not-mobile.js-header-first
+            .header-first__title.js-header-first-title Покупка сертификата
+            .header-first__text.js-header-first-text Вишня, м. Новокузнецкая
         .header-second
             button.header-second__back-button(type='button')
                 +caretLeft('header-second__back-icon')
             .header-second__title Дизайн и получатель
             .header-second__steps Шаг 4 из 5
 
-        .steps
-            .cards.cards__step-four
+        .steps.steps_columns
+            .cards.cards_single.cards__step-four
                 +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', hasBg:'true', hasImg: 'true', hasBtns: 'true'})
 
                 .bg-tabs.js-bg-tabs
