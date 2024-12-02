@@ -177,32 +177,6 @@
         background-size: cover;
         border-radius: 24px;
         z-index: 1;
-        opacity: 0;
-        transition: all 0.2s;
-
-        &.active {
-            opacity: 1;
-        }
-
-        &_1 {
-            background-image: url('../img/gradient01.png');
-        }
-
-        &_2 {
-            background-image: url('../img/gradient02.png');
-        }
-
-        &_3 {
-            background-image: url('../img/gradient03.png');
-        }
-
-        &_4 {
-            background-image: url('../img/gradient04.png');
-        }
-
-        &_5 {
-            background-image: url('../img/gradient05.png');
-        }
     }
 
     &__img {
@@ -216,32 +190,6 @@
         background-size: contain;
         z-index: 2;
         border-radius: 24px;
-        opacity: 0;
-        transition: all 0.2s;
-
-        &.active {
-            opacity: 1;
-        }
-
-        &_1 {
-            background-image: url('../img/baloon.png');
-        }
-
-        &_2 {
-            background-image: url('../img/cake.png');
-        }
-
-        &_3 {
-            background-image: url('../img/gift.png');
-        }
-
-        &_4 {
-            background-image: url('../img/heart.png');
-        }
-
-        &_5 {
-            background-image: url('../img/flower.png');
-        }
     }
 
     &__buttons {

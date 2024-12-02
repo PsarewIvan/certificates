@@ -27,16 +27,8 @@
       <div class="steps steps_columns">
         <div class="cards cards_single cards__step-four">
               <div class="card">
-                <div class="card__bg card__bg_1 js-card-bg active" data-type="2"></div>
-                <div class="card__bg card__bg_2 js-card-bg" data-type="3"></div>
-                <div class="card__bg card__bg_3 js-card-bg" data-type="4"></div>
-                <div class="card__bg card__bg_4 js-card-bg" data-type="5"></div>
-                <div class="card__bg card__bg_5 js-card-bg" data-type="6"></div>
-                <div class="card__img card__img_1 js-card-img active"></div>
-                <div class="card__img card__img_2 js-card-img"></div>
-                <div class="card__img card__img_3 js-card-img"></div>
-                <div class="card__img card__img_4 js-card-img"></div>
-                <div class="card__img card__img_5 js-card-img"></div>
+                <div class="card__bg js-card-bg active"></div>
+                <div class="card__img js-card-img active"></div>
                 <div class="card__buttons js-card-buttons">
                   <button class="card__button card__button_left js-card-button-left" type="button">
                         <svg class="card__button-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -61,12 +53,9 @@
                 </div>
               </div>
           <div class="bg-tabs js-bg-tabs">
-            <button class="bg-tabs__button js-bg-tab-button" type="button" data-type="1"><img src="./img/image1.png"></button>
-            <button class="bg-tabs__button active js-bg-tab-button" type="button" data-type="2"><img src="./img/image2.png"></button>
-            <button class="bg-tabs__button js-bg-tab-button" type="button" data-type="3"><img src="./img/image3.png"></button>
-            <button class="bg-tabs__button js-bg-tab-button" type="button" data-type="4"><img src="./img/image4.png"></button>
-            <button class="bg-tabs__button js-bg-tab-button" type="button" data-type="5"><img src="./img/image5.png"></button>
-            <button class="bg-tabs__button js-bg-tab-button" type="button" data-type="6"><img src="./img/image6.png"></button>
+            <button class="bg-tabs__button default js-bg-tab-button" type="button">
+              <div class="bg-tabs__button-bg js-bg-tabs-button"></div>
+            </button>
           </div>
         </div>
         <div class="step">
@@ -125,6 +114,157 @@
         </div>
       </div>
     </div>
+    <script>
+      // Включение дополнительного блока
+      (() => {
+          const addingButton = document.querySelector('.js-step-four-add-button');
+          const addingInputs = document.querySelectorAll('.js-step-four-adding-input');
+      
+          addingButton?.addEventListener('click', () => {
+              addingInputs.forEach((input) => {
+                  input.classList.remove('hidden');
+              });
+      
+              addingButton.classList.add('hidden');
+          });
+      })();
+      
+      // Переключение картинок
+      (() => {
+          const IMG_PATHS = [
+              'img/baloon.png',
+              'img/cake.png',
+              'img/gift.png',
+              'img/heart.png',
+              'img/flower.png',
+          ];
+          const cardImg = document.querySelector('.js-card-img');
+          const buttonLeft = document.querySelector('.js-card-button-left');
+          const buttonRight = document.querySelector('.js-card-button-right');
+      
+          setCardImg(IMG_PATHS[0]);
+      
+          buttonLeft?.addEventListener('click', handleButtonLeftClick);
+      
+          buttonRight?.addEventListener('click', handleButtonRightClick);
+      
+          function handleButtonLeftClick() {
+              clickCallback((index) => {
+                  if (index > 0) {
+                      setCardImg(IMG_PATHS[index - 1]);
+                  } else {
+                      setCardImg(IMG_PATHS[IMG_PATHS.length - 1]);
+                  }
+              });
+          }
+      
+          function handleButtonRightClick() {
+              clickCallback((index) => {
+                  if (index < IMG_PATHS.length - 1) {
+                      setCardImg(IMG_PATHS[index + 1]);
+                  } else {
+                      setCardImg(IMG_PATHS[0]);
+                  }
+              });
+          }
+      
+          function clickCallback(callback) {
+              const currentBg = getCardBg();
+      
+              if (!currentBg) return;
+      
+              IMG_PATHS.forEach((path, index) => {
+                  if (currentBg.includes(path)) {
+                      callback(index);
+                  }
+              });
+          }
+      
+          function setCardImg(path) {
+              if (cardImg) {
+                  cardImg.style.backgroundImage = `url('${path}')`;
+              }
+          }
+      
+          function getCardBg() {
+              return cardImg?.style.backgroundImage;
+          }
+      })();
+      
+      // Переключение фона
+      (() => {
+          const BG_PATHS = [
+              'img/gradient01.png',
+              'img/gradient02.png',
+              'img/gradient03.png',
+              'img/gradient04.png',
+              'img/gradient05.png',
+          ];
+      
+          tabButtonsRender();
+      
+          const tabButtons = document.querySelectorAll('.js-bg-tab-button');
+      
+          tabButtons.forEach((button) => {
+              button.addEventListener('click', handleBgButtonClick);
+          });
+      
+          function handleBgButtonClick() {
+              const button = event.currentTarget;
+              const buttonBg = button.querySelector('.js-bg-tabs-button');
+      
+              setActiveTab(button);
+              const bg = buttonBg?.style?.backgroundImage;
+      
+              setCardBg(bg ?? 'none');
+          }
+      
+          function tabButtonsRender() {
+              const tabsBlock = document.querySelector('.js-bg-tabs');
+      
+              if (!tabsBlock) return;
+      
+              BG_PATHS.forEach((path, index) => {
+                  const button = getTabButton(path);
+      
+                  if (index === 0) {
+                      button.classList.add('active');
+                      setCardBg(`url("${path}")`);
+                  }
+      
+                  tabsBlock.appendChild(button);
+              });
+          }
+      
+          function getTabButton(bgPath) {
+              const button = document.createElement('button');
+              const buttonBg = document.createElement('div');
+              button.type = 'button';
+              button.classList.add('bg-tabs__button', 'js-bg-tab-button');
+              buttonBg.classList.add('bg-tabs__button-bg', 'js-bg-tabs-button');
+              buttonBg.style.backgroundImage = `url("${bgPath}")`;
+              button.appendChild(buttonBg);
+      
+              return button;
+          }
+      
+          function setCardBg(bg) {
+              const cardBg = document.querySelector('.js-card-bg');
+      
+              if (!cardBg) return;
+      
+              cardBg.style.backgroundImage = bg;
+          }
+      
+          function setActiveTab(activeTab) {
+              tabButtons.forEach((tab) => {
+                  tab.classList.remove('active');
+              });
+      
+              activeTab.classList.add('active');
+          }
+      })();
+    </script>
   </body>
   <script src="js/index.js"></script>
 </html>

@@ -84,9 +84,8 @@
 }
 
 .bg-tabs {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 4px;
     padding: 0 10px;
 
@@ -105,14 +104,24 @@
         cursor: pointer;
         transition: all 0.2s;
 
+        &.default {
+            .bg-tabs__button-bg {
+                background-color: vars.$backgroundYellow;
+            }
+        }
+
         &.active {
             border-color: vars.$accent500;
         }
+    }
 
-        img {
-            width: 40px;
-            height: 40px;
-        }
+    &__button-bg {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
 

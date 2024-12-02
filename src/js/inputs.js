@@ -27,24 +27,11 @@
                 reset?.classList.add(ACTIVE_CLASS);
                 alert?.classList.remove(ACTIVE_CLASS);
             }
-
-            // switch (input.name) {
-            //     case INPUT_NAMES.Phone:
-            //         observedState.phone = event.target.value;
-            //         break;
-            //     case INPUT_NAMES.SenderName:
-            //         observedState.senderName = event.target.value;
-            //         break;
-            //     case INPUT_NAMES.RecipientName:
-            //         observedState.recipientName = event.target.value;
-            //         break;
-            // }
         });
 
         reset?.addEventListener('click', () => {
             if (input) {
                 input.value = '';
-                // observedState.phone = '';
                 reset?.classList.remove(ACTIVE_CLASS);
             }
         });

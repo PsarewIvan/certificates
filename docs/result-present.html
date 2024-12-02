@@ -18,16 +18,8 @@
       <div class="steps steps_columns">
         <div class="cards cards_single">
               <div class="card">
-                <div class="card__bg card__bg_1 js-card-bg active" data-type="2"></div>
-                <div class="card__bg card__bg_2 js-card-bg" data-type="3"></div>
-                <div class="card__bg card__bg_3 js-card-bg" data-type="4"></div>
-                <div class="card__bg card__bg_4 js-card-bg" data-type="5"></div>
-                <div class="card__bg card__bg_5 js-card-bg" data-type="6"></div>
-                <div class="card__img card__img_1 js-card-img active"></div>
-                <div class="card__img card__img_2 js-card-img"></div>
-                <div class="card__img card__img_3 js-card-img"></div>
-                <div class="card__img card__img_4 js-card-img"></div>
-                <div class="card__img card__img_5 js-card-img"></div>
+                <div class="card__bg js-card-bg active"></div>
+                <div class="card__img js-card-img active"></div>
                 <div class="card__name">Название сертификата длинным названием
                 </div>
                 <div class="card__status">Действует 365 дней после активации
@@ -74,6 +66,23 @@
         </div>
       </div>
     </div>
+    <script>
+      (() => {
+          const addingButton = document.querySelector('.js-result-present-add-button');
+          const addingInputs = document.querySelectorAll('.js-result-present-adding-content');
+          const buttonShowText = document.querySelector('.js-result-present-add-button-show-text');
+          const buttonHideText = document.querySelector('.js-result-present-add-button-hide-text');
+      
+          addingButton?.addEventListener('click', () => {
+              addingInputs.forEach((input) => {
+                  input.classList.toggle('hidden');
+              });
+      
+              buttonShowText?.classList.toggle('hidden');
+              buttonHideText?.classList.toggle('hidden');
+          });
+      })();
+    </script>
   </body>
   <script src="js/index.js"></script>
 </html>

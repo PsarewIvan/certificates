@@ -4,17 +4,9 @@ include ../icons/icon-arrow-left.pug
 mixin card({name, price, hit, status, address, description, hasBg, hasImg, hasBtns, className})
     .card(class=className)
         if (hasBg)
-            .card__bg.card__bg_1.js-card-bg.active(data-type="2")
-            .card__bg.card__bg_2.js-card-bg(data-type="3")
-            .card__bg.card__bg_3.js-card-bg(data-type="4")
-            .card__bg.card__bg_4.js-card-bg(data-type="5")
-            .card__bg.card__bg_5.js-card-bg(data-type="6")
+            .card__bg.js-card-bg.active
         if (hasImg)
-            .card__img.card__img_1.js-card-img.active
-            .card__img.card__img_2.js-card-img
-            .card__img.card__img_3.js-card-img
-            .card__img.card__img_4.js-card-img
-            .card__img.card__img_5.js-card-img
+            .card__img.js-card-img.active
         if (hasBtns)
             .card__buttons.js-card-buttons
                 button.card__button.card__button_left.js-card-button-left(type="button")

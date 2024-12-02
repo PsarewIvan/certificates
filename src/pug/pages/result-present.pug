@@ -41,3 +41,20 @@ block content
 
                 .button-wrapper
                     +button({text: 'Записаться онлайн', className: 'button-wrapper__button'})
+
+    script.
+        (() => {
+            const addingButton = document.querySelector('.js-result-present-add-button');
+            const addingInputs = document.querySelectorAll('.js-result-present-adding-content');
+            const buttonShowText = document.querySelector('.js-result-present-add-button-show-text');
+            const buttonHideText = document.querySelector('.js-result-present-add-button-hide-text');
+
+            addingButton?.addEventListener('click', () => {
+                addingInputs.forEach((input) => {
+                    input.classList.toggle('hidden');
+                });
+
+                buttonShowText?.classList.toggle('hidden');
+                buttonHideText?.classList.toggle('hidden');
+            });
+        })();
