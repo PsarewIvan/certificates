@@ -14,7 +14,13 @@ block content
 
         .steps.steps_columns
             .cards.cards_single
-                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая',hasBg:'true',hasImg: 'true'})
+                .card
+                    .card__bg(style="background-image: url(img/gradient01.png);")
+                    .card__img(style="background-image: url(img/baloon.png);")
+                    .card__name Название сертификата длинным названием
+                    .card__status Действует 365 дней после активации
+                    .card__address Вишня, м. Новокузнецкая
+                    .card__price 2 000 ₽
 
             .step
                 .step__title Константин Константинович
