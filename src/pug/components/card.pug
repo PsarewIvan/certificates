@@ -3,33 +3,34 @@ include ../icons/icon-arrow-left.pug
 
 mixin card({name, price, hit, status, address, description, hasBg, hasImg, hasBtns, className})
     .card(class=className)
-        if (hasBg)
-            .card__bg.js-card-bg.active
-        if (hasImg)
-            .card__img.js-card-img.active
-        if (hasBtns)
-            .card__buttons.js-card-buttons
-                button.card__button.card__button_left.js-card-button-left(type="button")
+        .card__content
+            if (hasBg)
+                .card__bg.js-card-bg.active
+            if (hasImg)
+                .card__img.js-card-img.active
+            if (hasBtns)
+                .card__buttons.js-card-buttons
+                    button.card__button.card__button_left.js-card-button-left(type="button")
+                        +icon-arrow-left('card__button-icon')
+                    button.card__button.card__button_right.js-card-button-right(type="button")
                     +icon-arrow-left('card__button-icon')
-                button.card__button.card__button_right.js-card-button-right(type="button")
-                    +icon-arrow-left('card__button-icon')
-        .card__name
-            = name
-            if (hit)
-                .card__name-hit
-                    +hit('card__name-hit-icon')
-                    .card__name-hit-text
-                        = hit
-        if (status !== '')
-            .card__status
-                = status 
-        if (address !== '')
-            .card__address
-                = address 
-        if (description !== '')
-            .card__description 
-                = description
-        .card__price
-            = price 
-            span ₽
+            .card__name
+                = name
+                if (hit)
+                    .card__name-hit
+                        +hit('card__name-hit-icon')
+                        .card__name-hit-text
+                            = hit
+            if (status !== '')
+                .card__status
+                    = status 
+            if (address !== '')
+                .card__address
+                    = address 
+            if (description !== '')
+                .card__description 
+                    = description
+            .card__price
+                = price 
+                span ₽
         
