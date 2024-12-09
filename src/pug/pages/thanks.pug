@@ -1,0 +1,74 @@
+extends ../layout.pug
+
+block content
+    include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+    include ../icons/icon-ok.pug
+
+    .main
+        .header-first
+            .header-first__title Сертификат 675486129
+            .header-first__text Вишня, м. Новокузнецкая
+
+        .steps.steps_columns
+            .cards.cards_single
+                .card
+                    .card__content
+                        .card__bg(style="background-image: url(img/gradient01.png);")
+                        .card__img(style="background-image: url(img/baloon.png);")
+                        .card__name Название сертификата длинным названием
+                        .card__status Действует 365 дней после активации
+                        .card__address Вишня, м. Новокузнецкая
+                        .card__price 2 000 ₽
+
+            .step
+                .step__title Спасибо за покупку
+                .card-content
+                    .card-content__label Номер сертификата
+                    .card-content__text 675486129
+                .card-content
+                    .card-content__label Ссылка на сертификат будет отправлена  в WhatsApp или SMS
+                    .card-content__text Сегодня, 28 ноября 2024 года в 17:56 на номер +7 (800) 900-80-70
+                .card-content
+                    .card-content__label Сообщение получателю
+                    .card-content__text.bold.high Константин Константинович
+                .card-content
+                    .card-content__label Поздравляю со средой – ещё не пятница, но уже не понедельник
+                .card-content
+                    .card-content__text.bold Анастасия
+
+                .card-content.hidden.js-thanks-adding-content
+                    .card-content__label Действует
+                    .card-content__text до 20.11.2025 года
+                .card-content.hidden.js-thanks-adding-content
+                    .card-content__label Где использовать
+                    .card-content__text В салоне Вишня, м. Новокузнецкая
+                .card-content.hidden.js-thanks-adding-content
+                    .card-content__label На что можно использовать
+                    .card-content__text Любые услуги и товары салона
+                .card-content.hidden.js-thanks-adding-content
+                    .card-content__label Чек о покупке отправлен на номер
+                    .card-content__text +7 (800) 900-80-70
+                .link-button.js-thanks-add-button
+                    button.link-button__button(type="button")
+                        span.js-thanks-add-button-show-text Подробнее о сертификате
+                        span.hidden.js-thanks-add-button-hide-text Скрыть описание
+
+    script.
+        (() => {
+            const addingButton = document.querySelector('.js-thanks-add-button');
+            const addingInputs = document.querySelectorAll('.js-thanks-adding-content');
+            const buttonShowText = document.querySelector('.js-thanks-add-button-show-text');
+            const buttonHideText = document.querySelector('.js-thanks-add-button-hide-text');
+
+            addingButton?.addEventListener('click', () => {
+                addingInputs.forEach((input) => {
+                    input.classList.toggle('hidden');
+                });
+
+                buttonShowText?.classList.toggle('hidden');
+                buttonHideText?.classList.toggle('hidden');
+            });
+        })();

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=1">
+    <meta content="" name="Description">
+    <meta content="" name="Keywords">
+    <meta content="index,follow" name="robots">
+    <title>Покупка сертификата</title>
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="header-first">
+        <div class="header-first__title">Сертификат 675486129</div>
+        <div class="header-first__text">Вишня, м. Новокузнецкая</div>
+      </div>
+      <div class="steps steps_columns">
+        <div class="cards cards_single">
+          <div class="card">
+            <div class="card__content">
+              <div class="card__bg" style="background-image: url(img/gradient01.png);"></div>
+              <div class="card__img" style="background-image: url(img/baloon.png);"></div>
+              <div class="card__name">Название сертификата длинным названием</div>
+              <div class="card__status">Действует 365 дней после активации</div>
+              <div class="card__address">Вишня, м. Новокузнецкая</div>
+              <div class="card__price">2 000 ₽</div>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__title">Константин Константинович</div>
+          <div class="card-content">
+            <div class="card-content__text">Поздравляю со средой – ещё не пятница, но уже не понедельник</div>
+          </div>
+          <div class="card-content">
+            <div class="card-content__text card-content__text_bold">Анастасия</div>
+          </div>
+          <div class="card-content hidden js-result-present-adding-content">
+            <div class="card-content__label">Номер сертификата</div>
+            <div class="card-content__text">675486129</div>
+          </div>
+          <div class="card-content hidden js-result-present-adding-content">
+            <div class="card-content__label">Где использовать</div>
+            <div class="card-content__text">В салоне Вишня, м. Новокузнецкая</div>
+          </div>
+          <div class="card-content hidden js-result-present-adding-content">
+            <div class="card-content__label">На что можно использовать</div>
+            <div class="card-content__text">Любые услуги и товары салона</div>
+          </div>
+          <div class="card-content hidden js-result-present-adding-content">
+            <div class="card-content__label">Действует</div>
+            <div class="card-content__text">до 20.11.2025 года</div>
+          </div>
+          <div class="link-button js-result-present-add-button">
+            <button class="link-button__button" type="button"><span class="js-result-present-add-button-show-text">Подробнее о сертификате</span><span class="hidden js-result-present-add-button-hide-text">Скрыть описание</span></button>
+          </div>
+          <div class="button-wrapper">
+                <button class="button m primary button-wrapper__button" type="button">Записаться онлайн
+                </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (() => {
+          const addingButton = document.querySelector('.js-result-present-add-button');
+          const addingInputs = document.querySelectorAll('.js-result-present-adding-content');
+          const buttonShowText = document.querySelector('.js-result-present-add-button-show-text');
+          const buttonHideText = document.querySelector('.js-result-present-add-button-hide-text');
+      
+          addingButton?.addEventListener('click', () => {
+              addingInputs.forEach((input) => {
+                  input.classList.toggle('hidden');
+              });
+      
+              buttonShowText?.classList.toggle('hidden');
+              buttonHideText?.classList.toggle('hidden');
+          });
+      })();
+    </script>
+  </body>
+  <script src="js/index.js"></script>
+</html>

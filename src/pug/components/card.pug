@@ -13,7 +13,7 @@ mixin card({name, price, hit, status, address, description, hasBg, hasImg, hasBt
                     button.card__button.card__button_left.js-card-button-left(type="button")
                         +icon-arrow-left('card__button-icon')
                     button.card__button.card__button_right.js-card-button-right(type="button")
-                    +icon-arrow-left('card__button-icon')
+                        +icon-arrow-left('card__button-icon')
             .card__name
                 = name
                 if (hit)
@@ -30,7 +30,7 @@ mixin card({name, price, hit, status, address, description, hasBg, hasImg, hasBt
             if (description !== '')
                 .card__description 
                     = description
-            .card__price
-                = price 
-                span ₽
-        
+            if (price)
+                .card__price
+                    = price 
+                    span ₽

@@ -1,0 +1,19 @@
+extends ../layout.pug
+
+block variables
+    - var page = 'index'
+
+block content
+    include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+    include ../icons/icon-ok.pug
+
+    .main
+        .header-first.js-header-first
+            .header-first__title.js-header-first-title Покупка сертификата
+            .header-first__text.link.js-header-first-text Вишня, м. Новокузнецкая
+
+        .steps.empty
+            .empty-text В данный момент в салоне нет доступных сертификатов для продажи

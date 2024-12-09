@@ -3,6 +3,18 @@
 .steps {
     margin: 0 16px 6px;
 
+    &.empty {
+        height: calc(100vh - 86px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (min-width: 724px) {
+            height: auto;
+            display: block;
+        }
+    }
+
     @media (min-width: 724px) {
         padding: 16px;
         margin: 0;
@@ -77,6 +89,15 @@
             font-weight: 600;
         }
 
+        &.bold {
+            font-weight: 500;
+        }
+
+        &.high {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
         span {
             margin-left: 4px;
         }
@@ -137,5 +158,17 @@
             width: auto;
             min-width: 160px;
         }
+    }
+}
+
+.empty-text {
+    color: vars.$textLBGSecondary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+
+    @media (min-width: 724px) {
+        text-align: left;
     }
 }

@@ -19,38 +19,39 @@
 
         .card__content {
             position: relative;
+            height: 100%;
         }
     }
 
-    &:nth-child(7n + 1) {
+    &:nth-child(7n + 1).certificate {
         background-color: vars.$backgroundYellow;
     }
 
-    &:nth-child(7n + 2) {
+    &:nth-child(7n + 2).certificate {
         background-color: vars.$backgroundGreen;
     }
 
-    &:nth-child(7n + 3) {
+    &:nth-child(7n + 3).certificate {
         background-color: vars.$backgroundBlue;
     }
 
-    &:nth-child(7n + 4) {
+    &:nth-child(7n + 4).certificate {
         background-color: vars.$backgroundRed;
     }
 
-    &:nth-child(7n + 5) {
+    &:nth-child(7n + 5).certificate {
         background-color: vars.$backgroundBrown;
     }
 
-    &:nth-child(7n + 6) {
+    &:nth-child(7n + 6).certificate {
         background-color: vars.$backgroundCyan;
     }
 
-    &:nth-child(7n) {
+    &:nth-child(7n).certificate {
         background-color: vars.$backgroundPurple;
     }
 
-    &.interactive:hover {
+    &.certificate.interactive:hover {
         &:nth-child(7n + 1) {
             background-color: vars.$backgroundYellowHover;
         }
@@ -78,6 +79,12 @@
         &:nth-child(7n) {
             background-color: vars.$backgroundPurpleHover;
         }
+    }
+
+    &.filial {
+        height: fit-content;
+        min-height: 76px;
+        background-color: vars.$accent12;
     }
 
     &__content {
@@ -128,6 +135,7 @@
     &__status {
         display: none;
         margin-top: 2px;
+        margin-bottom: auto;
         font-size: 12px;
         line-height: 16px;
         color: vars.$textLBGSecondary;

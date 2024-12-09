@@ -1,0 +1,26 @@
+extends ../layout.pug
+
+block variables
+
+block content
+    include ../components/card.pug
+    include ../components/text-input.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+    include ../icons/icon-ok.pug
+
+    .main
+        .header-first.js-header-first
+            .header-first__title.js-header-first-title Покупка сертификата
+            .header-first__text.js-header-first-text Вишня, м. Новокузнецкая
+        .header-second.js-header-second
+            .header-second__title.js-header-title Выберите сертификат
+
+        .steps
+            .cards(js-cards)
+                +card({name: 'Название сертификата длинным названием', price: '2 000', hit: 'хит', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться', className: 'certificate interactive'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться', className: 'certificate interactive'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться', className: 'certificate interactive'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться', className: 'certificate interactive'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться', className: 'certificate interactive'})
+                +card({name: 'Название сертификата ', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться', className: 'certificate interactive'})
