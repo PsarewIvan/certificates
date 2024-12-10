@@ -136,6 +136,7 @@ function watch() {
     });
     gulp.watch(paths.pug.watch, html);
     gulp.watch(paths.styles.watch, styles);
+    gulp.watch(paths.libs.watch, libs);
     gulp.watch(paths.scripts.watch, scripts);
     gulp.watch(paths.fonts.watch, fonts);
     gulp.watch(paths.images.watch, images);

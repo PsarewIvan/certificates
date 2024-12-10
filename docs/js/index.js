@@ -4,8 +4,6 @@
     elementsWrapper?.forEach((elementWrapper) => {
         const input = elementWrapper.querySelector('.js-datepicker');
 
-        console.log('[Datepicker]', typeof Datepicker);
-
         if (typeof Datepicker) {
             const datepicker = new Datepicker(input, {
                 language: 'ru',
@@ -22,7 +20,6 @@
             const reset = elementWrapper.querySelector('.js-datepicker-reset');
 
             input?.addEventListener('changeDate', (event) => {
-                console.log(event.target.value);
                 if (!event.target.value || event.target.value === '') {
                     calendar.classList.remove('hidden');
                     reset.classList.add('hidden');
