@@ -1,0 +1,24 @@
+extends ../layout.pug
+
+block content
+    include ../components/card.pug
+    include ../components/button.pug
+    include ../icons/caretLeft.pug
+
+    .main
+        .header-first
+            .header-first__title Покупка сертификата
+            .header-first__text Вишня, м. Новокузнецкая
+
+        .steps.steps_columns
+            .cards.cards_single
+                +card({name: 'Название сертификата', price: '2 000', address: 'Вишня, м. Новокузнецкая', description: 'Условия где и на что может использоваться', className: 'certificate'})
+
+            .step
+                .step__title.error Ошибка оплаты
+                .card-content 
+                    .card-content__text Оплата не прошла. Попробуйте оплатить повторно. Если у вас списались деньги, обратитесь в службу поддержки по телефону 
+                        a(href='tel:+70000000000') +7 (000) 000-00-00
+
+                .button-wrapper
+                    +button({text: 'Оплатить 2 000 ₽', className: 'button-wrapper__button'})

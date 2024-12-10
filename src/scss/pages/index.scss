@@ -61,6 +61,10 @@
         font-weight: 500;
         line-height: 24px;
 
+        &.error {
+            color: vars.$danger500;
+        }
+
         &_hide-tablet {
             @media (min-width: 724px) {
                 display: none;
@@ -100,6 +104,11 @@
 
         span {
             margin-left: 4px;
+        }
+
+        a {
+            text-decoration: none;
+            color: vars.$accent600;
         }
     }
 }
