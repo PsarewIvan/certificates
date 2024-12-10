@@ -23,70 +23,6 @@
         }
     }
 
-    &:nth-child(7n + 1).certificate {
-        background-color: vars.$backgroundYellow;
-    }
-
-    &:nth-child(7n + 2).certificate {
-        background-color: vars.$backgroundGreen;
-    }
-
-    &:nth-child(7n + 3).certificate {
-        background-color: vars.$backgroundBlue;
-    }
-
-    &:nth-child(7n + 4).certificate {
-        background-color: vars.$backgroundRed;
-    }
-
-    &:nth-child(7n + 5).certificate {
-        background-color: vars.$backgroundBrown;
-    }
-
-    &:nth-child(7n + 6).certificate {
-        background-color: vars.$backgroundCyan;
-    }
-
-    &:nth-child(7n).certificate {
-        background-color: vars.$backgroundPurple;
-    }
-
-    &.certificate.interactive:hover {
-        &:nth-child(7n + 1) {
-            background-color: vars.$backgroundYellowHover;
-        }
-
-        &:nth-child(7n + 2) {
-            background-color: vars.$backgroundGreenHover;
-        }
-
-        &:nth-child(7n + 3) {
-            background-color: vars.$backgroundBlueHover;
-        }
-
-        &:nth-child(7n + 4) {
-            background-color: vars.$backgroundRedHover;
-        }
-
-        &:nth-child(7n + 5) {
-            background-color: vars.$backgroundBrownHover;
-        }
-
-        &:nth-child(7n + 6) {
-            background-color: vars.$backgroundCyanHover;
-        }
-
-        &:nth-child(7n) {
-            background-color: vars.$backgroundPurpleHover;
-        }
-    }
-
-    &.filial {
-        height: fit-content;
-        min-height: 76px;
-        background-color: vars.$accent12;
-    }
-
     &__content {
         position: absolute;
         top: 0;
@@ -267,6 +203,143 @@
 
         .card__button-icon {
             transform: rotate(180deg);
+        }
+    }
+}
+
+// COLORS
+.card {
+    &.default-color {
+        &:nth-child(7n + 1) {
+            background-color: vars.$backgroundYellow;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundYellowHover;
+            }
+        }
+
+        &:nth-child(7n + 2) {
+            background-color: vars.$backgroundGreen;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundGreenHover;
+            }
+        }
+
+        &:nth-child(7n + 3) {
+            background-color: vars.$backgroundBlue;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundBlueHover;
+            }
+        }
+
+        &:nth-child(7n + 4) {
+            background-color: vars.$backgroundRed;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundRedHover;
+            }
+        }
+
+        &:nth-child(7n + 5) {
+            background-color: vars.$backgroundBrown;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundBrownHover;
+            }
+        }
+
+        &:nth-child(7n + 6) {
+            background-color: vars.$backgroundCyan;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundCyanHover;
+            }
+        }
+
+        &:nth-child(7n) {
+            background-color: vars.$backgroundPurple;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundPurpleHover;
+            }
+        }
+    }
+
+    &.filial-color {
+        height: fit-content;
+        min-height: 76px;
+        background-color: vars.$accent12;
+
+        &:hover {
+            background-color: vars.$accent32;
+        }
+    }
+
+    &.gray-color {
+        &:nth-child(3n + 1) {
+            background-color: vars.$backgroundGrey1;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundGrey1Hover;
+            }
+        }
+
+        &:nth-child(3n + 2) {
+            background-color: vars.$backgroundGrey2;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundGrey2Hover;
+            }
+        }
+
+        &:nth-child(3n) {
+            background-color: vars.$backgroundGrey3;
+
+            &.interactive:hover {
+                background-color: vars.$backgroundGrey3Hover;
+            }
+        }
+    }
+
+    &.light-color {
+        background-color: vars.$interfaceBackground;
+        border-color: vars.$darkner40;
+
+        &.interactive:hover {
+            background-color: vars.$backgroundGrey1Hover;
+        }
+    }
+
+    &.dark-color {
+        background-color: vars.$textLBGPrimary;
+        border-color: vars.$darkner40;
+
+        &.interactive:hover {
+            background-color: vars.$black;
+        }
+
+        .card {
+            &__name {
+                color: vars.$textDBGPrimary;
+            }
+
+            &__status {
+                color: vars.$textDBGSecondary;
+            }
+
+            &__address {
+                color: vars.$textLBGSecondary;
+            }
+
+            &__description {
+                color: vars.$textDBGPrimary;
+            }
+
+            &__price {
+                color: vars.$textDBGPrimary;
+            }
         }
     }
 }

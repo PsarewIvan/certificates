@@ -5,8 +5,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 4px;
-    border-radius: 8px;
-    background-color: vars.$accent12;
+    border-radius: 12px;
+    background-color: vars.$darkner8;
 
     &__button {
         display: flex;
@@ -25,13 +25,14 @@
         transition: all 0.2s;
 
         &:hover {
-            color: vars.$accent500;
+            color: vars.$textLBGPrimary;
         }
 
         &.active {
-            border-color: vars.$accent32;
+            border-color: vars.$darkner16;
             background-color: vars.$interfaceBackground;
-            color: vars.$accent600;
+            color: vars.$textLBGPrimary;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
         }
     }
 }
