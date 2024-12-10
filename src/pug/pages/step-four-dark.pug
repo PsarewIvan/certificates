@@ -19,10 +19,10 @@ block content
 
         .steps.steps_columns
             .cards.cards_single.cards__step-four
-                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', hasBg:'true', hasImg: 'true', hasBtns: 'true', className: 'default-color'})
+                +card({name: 'Название сертификата длинным названием', price: '2 000', status: 'Действует 365 дней после активации', address: 'Вишня, м. Новокузнецкая', hasBg:'true', hasImg: 'true', hasBtns: 'true', className: 'dark-color'})
 
                 .bg-tabs.js-bg-tabs
-                    button.bg-tabs__button.default.js-bg-tab-button(type='button')
+                    button.bg-tabs__button.dark.js-bg-tab-button(type='button')
                         .bg-tabs__button-bg.js-bg-tabs-button
 
             .step
@@ -58,11 +58,11 @@ block content
         // Переключение картинок
         (() => {
             const IMG_PATHS = [
-                'img/baloon.png',
-                'img/cake.png',
-                'img/gift.png',
-                'img/heart.png',
-                'img/flower.png',
+                'img/dark-baloon.png',
+                'img/dark-gift.png',
+                'img/dark-heart.png',
+                'img/dark-ribbon.png',
+                'img/dark-rocket.png',
             ];
             const cardImg = document.querySelector('.js-card-img');
             const buttonLeft = document.querySelector('.js-card-button-left');
@@ -120,11 +120,11 @@ block content
         // Переключение фона
         (() => {
             const BG_PATHS = [
-                'img/gradient01.png',
-                'img/gradient02.png',
-                'img/gradient03.png',
-                'img/gradient04.png',
-                'img/gradient05.png',
+                'img/dark-gradient01.png',
+                'img/dark-gradient02.png',
+                'img/dark-gradient03.png',
+                'img/dark-gradient04.png',
+                'img/dark-gradient05.png',
             ];
 
             tabButtonsRender();
@@ -239,3 +239,4 @@ block content
                     </svg>`;
             }
         })();
+

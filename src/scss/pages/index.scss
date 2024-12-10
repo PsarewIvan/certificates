@@ -152,6 +152,12 @@
             }
         }
 
+        &.dark {
+            .bg-tabs__button-bg {
+                background-color: vars.$textLBGPrimary;
+            }
+        }
+
         &.active {
             border-color: vars.$accent500;
         }
