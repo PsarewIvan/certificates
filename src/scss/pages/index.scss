@@ -77,6 +77,18 @@
     }
 }
 
+.step-calendar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    &__field {
+        input {
+            width: 100%;
+        }
+    }
+}
+
 .card-content {
     display: flex;
     flex-direction: column;

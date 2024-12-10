@@ -4,6 +4,7 @@ block content
     include ../components/card.pug
     include ../components/text-input.pug
     include ../components/button.pug
+    include ../components/datepicker.pug
     include ../icons/caretLeft.pug
 
     .main
@@ -26,6 +27,9 @@ block content
 
             .step
                 +text-input({label: 'Телефон получателя', type: 'tel', subText: 'Ссылка на сертификат придёт в WhatsApp или SMS', name: 'inputPhone'})
+                .step-calendar
+                    +datepicker({name: "index-sort-from", label: 'День отправления', className: 'index-datepicker'})
+                    +text-input({label: 'Время', name: 'inputTime', className: 'step-calendar__field'})
                 +text-input({label: 'Имя получателя', name: 'inputSenderName'})
                 .link-button.js-step-four-add-button
                     button.link-button__button(type="button") Добавить поздравление

@@ -1,0 +1,217 @@
+@use '../vars.scss';
+
+.datepicker-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        margin-bottom: 8px;
+        color: vars.$textLBGPrimary;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+}
+
+.datepicker-component {
+    position: relative;
+    display: flex;
+    align-items: center;
+    // max-width: 240px;
+    height: 46px;
+    border-radius: 8px;
+    border: 1px solid #d6d6d6;
+    background-color: #fff;
+    transition: all 0.2s;
+
+    // @include mobile {
+    //     height: 44px;
+    // }
+
+    &_selected {
+        border-color: rgba(1, 144, 219, 0.48);
+        background-color: rgba(1, 144, 219, 0.08);
+
+        .datepicker-component__input {
+            color: #006fbc;
+        }
+    }
+
+    &:hover {
+        border-color: rgba(1, 144, 219, 0.48);
+    }
+
+    &__before {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        color: #5c5c5c;
+        font-size: 14px;
+        line-height: 20px;
+        pointer-events: none;
+
+        // @include mobile {
+        //     left: 20px;
+        // }
+    }
+
+    &__input {
+        width: 100%;
+        min-height: 36px;
+        padding: 0;
+        padding-right: 48px;
+        padding-left: 16px;
+        border: none;
+        background-color: transparent;
+        color: #1f1f1f;
+        font-size: 14px;
+        line-height: 20px;
+
+        // @include mobile {
+        //     min-height: 44px;
+        //     font-size: 16px;
+        //     line-height: 24px;
+        //     padding-left: 44px;
+        //     padding-right: 44px;
+        // }
+
+        &:focus {
+            outline: none;
+            box-shadow: none !important;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 8px;
+        width: 24px;
+        height: 24px;
+        fill: #5c5c5c;
+        pointer-events: none;
+
+        // @include mobile {
+        //     right: 16px;
+        // }
+    }
+
+    &__reset {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 8px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        // @include mobile {
+        //     right: 16px;
+        // }
+    }
+
+    &__reset-icon {
+        width: 16px;
+        height: 16px;
+        fill: #8f8f8f;
+    }
+
+    .datepicker {
+        .datepicker-picker {
+            padding: 16px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.06),
+                0px 2px 6px 0px rgba(0, 0, 0, 0.04),
+                0px 0px 1px 0px rgba(0, 0, 0, 0.04);
+        }
+
+        .datepicker-controls {
+            padding: 0;
+            gap: 8px;
+
+            .button {
+                flex-basis: 24px;
+                width: 24px;
+                height: 24px;
+                padding: 0;
+                color: #0190db;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 20px;
+
+                &:hover {
+                    background-color: transparent !important;
+                    color: #0190db !important;
+                }
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            .next-button {
+                transform: rotate(180deg);
+            }
+        }
+
+        .datepicker-view {
+            width: 224px;
+        }
+
+        .datepicker-main {
+            padding: 4px 0 0;
+
+            .days-of-week {
+                padding: 4px 0;
+            }
+
+            .dow {
+                height: auto;
+                color: #5c5c5c;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 16px;
+                text-transform: lowercase;
+            }
+
+            .day {
+                height: 32px;
+                border-radius: 8px;
+                border: 1px solid transparent;
+                color: #1f1f1f;
+                font-size: 14px;
+                line-height: 20px;
+
+                &.prev,
+                &.next {
+                    opacity: 0;
+                    pointer-events: none;
+                    cursor: default;
+                }
+
+                &.today {
+                    background-color: transparent;
+                    border-color: rgba(1, 144, 219, 0.48);
+                    color: #006fbc;
+                }
+
+                &.selected {
+                    border-color: #0190db;
+                    background-color: #0190db;
+                    color: #fff;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

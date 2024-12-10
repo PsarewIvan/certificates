@@ -7,6 +7,7 @@
     <meta content="" name="Keywords">
     <meta content="index,follow" name="robots">
     <title>Покупка сертификата</title>
+    <link rel="stylesheet" href="libs/datepicker.css">
     <link rel="stylesheet" href="css/index.css">
   </head>
   <body>
@@ -73,6 +74,33 @@
                 </div>
                 <div class="text-input__sub-text">Ссылка на сертификат придёт в WhatsApp или SMS</div>
               </div>
+          <div class="step-calendar">
+                <div class="datepicker-wrapper">
+                  <div class="datepicker-wrapper__label">День отправления</div>
+                  <div class="datepicker-component js-datepicker-wrapper index-datepicker">
+                    <input class="datepicker-component__input js-datepicker" type="text" name="index-sort-from">
+                        <svg class="datepicker-component__icon js-datepicker-calendar-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 2.25C17.25 1.83579 16.9142 1.5 16.5 1.5C16.0858 1.5 15.75 1.83579 15.75 2.25V3H8.25V2.25C8.25 1.83579 7.91421 1.5 7.5 1.5C7.08579 1.5 6.75 1.83579 6.75 2.25V3H4.5C3.67157 3 3 3.67157 3 4.5V19.5C3 20.3284 3.67157 21 4.5 21H19.5C20.3284 21 21 20.3284 21 19.5V4.5C21 3.67157 20.3284 3 19.5 3H17.25V2.25ZM19.5 7.5V4.5H17.25V5.25C17.25 5.66421 16.9142 6 16.5 6C16.0858 6 15.75 5.66421 15.75 5.25V4.5H8.25V5.25C8.25 5.66421 7.91421 6 7.5 6C7.08579 6 6.75 5.66421 6.75 5.25V4.5H4.5V7.5H19.5ZM4.5 9H19.5V19.5H4.5V9Z"></path>
+                        </svg>
+                    <button class="datepicker-component__reset hidden js-datepicker-reset" type="button">
+                          <svg class="datepicker-component__reset-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13.0303 4.03033C13.3232 3.73744 13.3232 3.26256 13.0303 2.96967C12.7374 2.67678 12.2626 2.67678 11.9697 2.96967L8 6.93934L4.03033 2.96967C3.73744 2.67678 3.26256 2.67678 2.96967 2.96967C2.67678 3.26256 2.67678 3.73744 2.96967 4.03033L6.93934 8L2.96967 11.9697C2.67678 12.2626 2.67678 12.7374 2.96967 13.0303C3.26256 13.3232 3.73744 13.3232 4.03033 13.0303L8 9.06066L11.9697 13.0303C12.2626 13.3232 12.7374 13.3232 13.0303 13.0303C13.3232 12.7374 13.3232 12.2626 13.0303 11.9697L9.06066 8L13.0303 4.03033Z"></path>
+                          </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="text-input js-text-input-node step-calendar__field">
+                  <div class="text-input__label">Время</div>
+                  <div class="text-input__input-wrapper">
+                    <input class="text-input__input js-text-input" type="text" placeholder="" value="" name="inputTime">
+                    <button class="text-input__reset js-text-input-reset" type="button">
+                          <svg class="text-input__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13.0303 4.03033C13.3232 3.73744 13.3232 3.26256 13.0303 2.96967C12.7374 2.67678 12.2626 2.67678 11.9697 2.96967L8 6.93934L4.03033 2.96967C3.73744 2.67678 3.26256 2.67678 2.96967 2.96967C2.67678 3.26256 2.67678 3.73744 2.96967 4.03033L6.93934 8L2.96967 11.9697C2.67678 12.2626 2.67678 12.7374 2.96967 13.0303C3.26256 13.3232 3.73744 13.3232 4.03033 13.0303L8 9.06066L11.9697 13.0303C12.2626 13.3232 12.7374 13.3232 13.0303 13.0303C13.3232 12.7374 13.3232 12.2626 13.0303 11.9697L9.06066 8L13.0303 4.03033Z"></path>
+                          </svg>
+                    </button>
+                  </div>
+                </div>
+          </div>
               <div class="text-input js-text-input-node">
                 <div class="text-input__label">Имя получателя</div>
                 <div class="text-input__input-wrapper">
@@ -268,5 +296,6 @@
       })();
     </script>
   </body>
+  <script src="libs/datepicker.js"></script>
   <script src="js/index.js"></script>
 </html>
