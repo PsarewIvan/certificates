@@ -193,44 +193,75 @@ block content
 
         // Календарь
         (() => {
-            const elementsWrapper = document.querySelectorAll('.js-datepicker-wrapper');
+            const MOBILE_WIDTH = 724;
 
-            elementsWrapper?.forEach((elementWrapper) => {
-                const input = elementWrapper.querySelector('.js-datepicker');
+            const dateInputWrapper = document.querySelector('.js-datepicker-wrapper');
+            const calendar = dateInputWrapper?.querySelector('.js-datepicker-calendar-icon');
+            const reset = dateInputWrapper?.querySelector('.js-datepicker-reset');
+            const dateInput = dateInputWrapper?.querySelector('.js-datepicker');
 
-                if (typeof Datepicker) {
-                    const datepicker = new Datepicker(input, {
-                        language: 'ru',
-                        autohide: true,
-                        maxView: 2,
-                        todayHighlight: true,
-                        prevArrow: getChevronIcon(),
-                        nextArrow: getChevronIcon(),
-                    });
+            let datepicker = initDatepicker();
 
-                    const calendar = elementWrapper.querySelector('.js-datepicker-calendar-icon');
-                    const reset = elementWrapper.querySelector('.js-datepicker-reset');
+            initCalendar();
 
-                    input?.addEventListener('changeDate', (event) => {
-                        if (!event.target.value || event.target.value === '') {
-                            calendar.classList.remove('hidden');
-                            reset.classList.add('hidden');
-                            elementWrapper.classList.remove('datepicker-component_selected');
-                        } else {
-                            calendar.classList.add('hidden');
-                            reset.classList.remove('hidden');
-                            elementWrapper.classList.add('datepicker-component_selected');
-                        }
-                    });
+            window.addEventListener('resize', initCalendar);
 
-                    reset?.addEventListener('click', () => {
-                        datepicker?.setDate({ clear: true });
-                        calendar.classList.remove('hidden');
-                        reset.classList.add('hidden');
-                        elementWrapper.classList.remove('datepicker-component_selected');
-                    });
+            function initCalendar() {
+                if (!dateInput) return;
+
+                if (isMobile()) {
+                    datepicker.destroy();
+                    dateInput.type = "date";
+                } else {
+                    if (datepicker) {
+                        datepicker.destroy();
+                    }
+
+                    dateInput.type = "text";
+                    datepicker = initDatepicker();
                 }
-            });
+            }
+
+            function initDatepicker() {
+                if (typeof Datepicker !== 'function') {
+                    return;
+                }
+
+                dateInput?.addEventListener('changeDate', handleDateChange);
+                reset?.addEventListener('click', handleResetClick);
+
+                return dateInput ? new Datepicker(dateInput, {
+                    language: 'ru',
+                    autohide: true,
+                    maxView: 2,
+                    todayHighlight: true,
+                    prevArrow: getChevronIcon(),
+                    nextArrow: getChevronIcon(),
+                }) : null;
+            }
+
+            function handleDateChange(event) {
+                if (!event.target.value || event.target.value === '') {
+                    calendar?.classList.remove('hidden');
+                    reset?.classList.add('hidden');
+                    dateInputWrapper?.classList.remove('datepicker-component_selected');
+                } else {
+                    calendar?.classList.add('hidden');
+                    reset?.classList.remove('hidden');
+                    dateInputWrapper?.classList.add('datepicker-component_selected');
+                }
+            }
+
+            function handleResetClick() {
+                datepicker?.setDate({ clear: true });
+                calendar?.classList.remove('hidden');
+                reset?.classList.add('hidden');
+                dateInputWrapper?.classList.remove('datepicker-component_selected');
+            }
+
+            function isMobile() {
+                return window.innerWidth <= MOBILE_WIDTH;
+            }
 
             function getChevronIcon() {
                 return `

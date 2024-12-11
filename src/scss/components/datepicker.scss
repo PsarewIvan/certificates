@@ -52,7 +52,7 @@
         width: 100%;
         min-height: 36px;
         padding: 0;
-        padding-right: 48px;
+        padding-right: 16px;
         padding-left: 16px;
         border: none;
         background-color: transparent;
@@ -64,9 +64,14 @@
             outline: none;
             box-shadow: none !important;
         }
+
+        @media (min-width: 724px) {
+            padding-right: 48px;
+        }
     }
 
     &__icon {
+        display: none;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -75,22 +80,30 @@
         height: 24px;
         fill: #5c5c5c;
         pointer-events: none;
+
+        @media (min-width: 724px) {
+            display: block;
+        }
     }
 
     &__reset {
+        display: none;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         right: 8px;
         width: 24px;
         height: 24px;
-        display: flex;
         align-items: center;
         justify-content: center;
         padding: 0;
         border: none;
         background-color: transparent;
         cursor: pointer;
+
+        @media (min-width: 724px) {
+            display: flex;
+        }
     }
 
     &__reset-icon {
