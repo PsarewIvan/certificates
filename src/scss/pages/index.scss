@@ -1,6 +1,7 @@
 @use '../vars.scss';
 
 .steps {
+    position: relative;
     margin: 0 16px 6px;
 
     &.empty {
@@ -197,5 +198,45 @@
 
     @media (min-width: 724px) {
         text-align: left;
+    }
+}
+
+.animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    pointer-events: none;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.lottie-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+
+    &.desktop {
+        display: none;
+    }
+
+    @media (min-width: 724px) {
+        &.desktop {
+            display: block;
+        }
+
+        &_left {
+            right: auto;
+            width: 432px;
+        }
+
+        &_right {
+            left: auto;
+            width: 432px;
+        }
     }
 }

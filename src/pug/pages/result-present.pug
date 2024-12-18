@@ -48,8 +48,34 @@ block content
 
                 .button-wrapper
                     +button({text: 'Записаться онлайн', className: 'button-wrapper__button'})
+        .animation
+            .lottie-animation.lottie-animation_left(id="lottie-animation-left")
+            .lottie-animation.lottie-animation_right.desktop(id="lottie-animation-right")
 
+    script(src="libs/lottie.js")
     script.
+        // Animation
+        (() => {
+            if (typeof lottie === 'object') {
+                const animationLeft = lottie.loadAnimation({
+                    container: document.getElementById('lottie-animation-left'),
+                    renderer: 'svg',
+                    loop: false,
+                    autoplay: true,
+                    path: 'animations/animation.json'
+                });
+
+                const animationRight = lottie.loadAnimation({
+                    container: document.getElementById('lottie-animation-right'),
+                    renderer: 'svg',
+                    loop: false,
+                    autoplay: true,
+                    path: 'animations/animation.json'
+                });
+            }
+        })();
+
+        // More button
         (() => {
             const addingButton = document.querySelector('.js-result-present-add-button');
             const addingInputs = document.querySelectorAll('.js-result-present-adding-content');

@@ -62,8 +62,35 @@
           </div>
         </div>
       </div>
+      <div class="animation">
+        <div class="lottie-animation lottie-animation_left" id="lottie-animation-left"></div>
+        <div class="lottie-animation lottie-animation_right desktop" id="lottie-animation-right"></div>
+      </div>
     </div>
+    <script src="libs/lottie.js"></script>
     <script>
+      // Animation
+      (() => {
+          if (typeof lottie === 'object') {
+              const animationLeft = lottie.loadAnimation({
+                  container: document.getElementById('lottie-animation-left'),
+                  renderer: 'svg',
+                  loop: false,
+                  autoplay: true,
+                  path: 'animations/animation.json'
+              });
+      
+              const animationRight = lottie.loadAnimation({
+                  container: document.getElementById('lottie-animation-right'),
+                  renderer: 'svg',
+                  loop: false,
+                  autoplay: true,
+                  path: 'animations/animation.json'
+              });
+          }
+      })();
+      
+      // More button
       (() => {
           const addingButton = document.querySelector('.js-result-present-add-button');
           const addingInputs = document.querySelectorAll('.js-result-present-adding-content');
