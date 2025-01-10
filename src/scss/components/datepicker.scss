@@ -112,6 +112,14 @@
         fill: #8f8f8f;
     }
 
+    &__after {
+        margin-top: 4px;
+        color: vars.$textLBGSecondary;
+        font-family: vars.$sfProDisplay;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
     .datepicker {
         .datepicker-picker {
             padding: 16px;

@@ -1,7 +1,7 @@
 include ../icons/icon-calendar.pug
 include ../icons/icon-cross.pug
 
-mixin datepicker({name, before, className='', label})
+mixin datepicker({name, before, className='', label, after})
     .datepicker-wrapper
         if (label)
             .datepicker-wrapper__label= label
@@ -12,3 +12,5 @@ mixin datepicker({name, before, className='', label})
             +icon-calendar('datepicker-component__icon js-datepicker-calendar-icon')
             button.datepicker-component__reset.hidden.js-datepicker-reset(type='button')
                 +icon-cross('datepicker-component__reset-icon')
+        if after
+            .datepicker-component__after= after
